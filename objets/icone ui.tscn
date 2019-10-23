@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/iconeBouffe1.png" type="Texture" id=1]
+[ext_resource path="res://scripts/IconeUi.gd" type="Script" id=2]
+
+[node name="icone ui" type="Sprite"]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 0.501961 )
+scale = Vector2( 0.601066, 0.600357 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

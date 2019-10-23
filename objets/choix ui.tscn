@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/choix ui.gd" type="Script" id=1]
+
+[node name="choix" type="Label"]
+margin_left = 59.0
+margin_right = 284.0
+margin_bottom = 74.0
+text = "Repas"
+script = ExtResource( 1 )

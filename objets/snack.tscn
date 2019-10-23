@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/objInteractif.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="snack" type="Area2D"]
+position = Vector2( 583.195, 504.968 )
+script = ExtResource( 1 )
+
+[node name="icon" type="Sprite" parent="."]
+self_modulate = Color( 0.972549, 0.768627, 0.380392, 1 )
+scale = Vector2( 0.36, 0.16 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -31.3126, -7.0014, -32.8199, 15.6087, -5.68781, 32.1895, 36.5178, 20.1307, 38.0252, -0.972046, 16.9224, -26.5969, -14.7319, -28.1042 )
