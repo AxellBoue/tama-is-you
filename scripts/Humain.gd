@@ -126,6 +126,7 @@ func arrive():
 	tempsDepart = tempsResteParPalier[palierAmour]
 	jaugeDepart.max_value = tempsDepart
 	timerDepart.start()
+	timer.stop()
 
 func _chrono_depart():
 	compteurDepart += 1
@@ -179,13 +180,15 @@ func frappe():
 
 ### réactions ####	
 func content(i):
-	anim.play("content")
+	if anim.current_animation != "arrive" && anim.current_animation !="part":
+		anim.play("content")
 	set_amour(i)
 	tempsDepart += tempsAjouteSiContent
 	jaugeDepart.max_value = tempsDepart
 		
 func pas_content(i):
-	anim.play("pas content")
+	if anim.current_animation != "arrive" && anim.current_animation !="part":
+		anim.play("pas content")
 	set_amour(i)
 	tempsDepart -= tempsRetireSiPasContent
 	jaugeDepart.max_value = tempsDepart
