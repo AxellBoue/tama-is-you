@@ -7,7 +7,7 @@
 [ext_resource path="res://images/humain/oeilnormalnofilter.png" type="Texture" id=5]
 [ext_resource path="res://images/humain/oeilpascontentfiltre.png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "123 soleil"
 length = 4.0
 tracks/0/type = "value"
@@ -47,7 +47,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "arrive"
 length = 2.0
 tracks/0/type = "bezier"
@@ -95,7 +95,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "content"
 length = 0.5
 tracks/0/type = "value"
@@ -111,7 +111,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "normal"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -126,7 +126,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "part"
 length = 2.0
 tracks/0/type = "bezier"
@@ -174,7 +174,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -190,7 +190,6 @@ tracks/0/keys = {
 }
 
 [node name="humain" type="Node2D"]
-editor/display_folded = true
 position = Vector2( 525.466, 225.218 )
 z_index = -300
 script = ExtResource( 1 )
@@ -199,12 +198,12 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/123 soleil" = SubResource( 2 )
-anims/arrive = SubResource( 3 )
-anims/content = SubResource( 4 )
-anims/normal = SubResource( 5 )
-anims/part = SubResource( 6 )
-"anims/pas content" = SubResource( 7 )
+"anims/123 soleil" = SubResource( 1 )
+anims/arrive = SubResource( 2 )
+anims/content = SubResource( 3 )
+anims/normal = SubResource( 4 )
+anims/part = SubResource( 5 )
+"anims/pas content" = SubResource( 6 )
 
 [node name="Timer va et viens" type="Timer" parent="."]
 

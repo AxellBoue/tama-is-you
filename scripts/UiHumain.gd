@@ -30,8 +30,8 @@ onready var snack = preload ("res://objets/snack.tscn")
 func _ready():
 	icones = [get_node("icones haut/manger"),get_node("icones haut/lumiere"),
 	get_node("icones haut/jeu"),get_node("icones haut/soin"),
-	get_node("icones bas/manger"),get_node("icones bas/lumiere"),
-	get_node("icones bas/jeu"),get_node("icones bas/soin")]
+	get_node("icones bas/lumiere2"),get_node("icones bas/lumiere"),
+	get_node("icones bas/jeu2"),get_node("icones bas/soin")]
 	timerUi.connect("timeout",self,"_bouge_dans_ui")
 	timerUi.wait_time = tpsChangeIcone
 
@@ -46,14 +46,14 @@ func _input(event):
 
 
 func nouvelObjectif (var new_i):
-	if new_i == 0:
-		humain.timerDecision.stop()
+	#if new_i == 0:
+		#humain.timerDecision.stop()
 	i_target = new_i
 	if currentI == null :
 		change_focus_icones(0)
 	if i_target == currentI :
 		#active_action()
-		timerUi.start() #pour qu'il y ait un délais si c'est 0 et que ça current i était null
+		timerUi.start() #pour qu'il y ait un délais si c'est 0 et que la current i était null
 	else :
 		if i_target < currentI :
 			direction = -1
@@ -80,6 +80,7 @@ func change_focus_icones(var new_f):
 func change_focus_texte():
 	active_action()
 
+
 func active_action():
 	timerUi.stop()
 	match focus.name : 
@@ -92,9 +93,11 @@ func active_action():
 		"repas":
 			choisiTexte = false
 			pop_bouffe(pomme)
+			focus = icones[currentI]
 		"snack":
 			choisiTexte = false
 			pop_bouffe(snack)
+			focus = icones[currentI]
 		"lumiere" :
 			humain.fin_hesite()
 		"jeu" :

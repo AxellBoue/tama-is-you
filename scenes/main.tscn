@@ -159,16 +159,15 @@ p : ballade dans les icones
 espace : manger pomme"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="jauges" type="Control" parent="CanvasLayer"]
-editor/display_folded = true
 margin_left = 30.0
 margin_top = 29.0
 margin_right = 267.0
 margin_bottom = 189.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/jauges"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -209,13 +208,26 @@ margin_right = 237.0
 margin_bottom = 104.0
 custom_styles/bg = SubResource( 2 )
 
-[node name="tuto" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
+[node name="temps avant départ" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
 margin_top = 108.0
 margin_right = 237.0
 margin_bottom = 122.0
+text = "temps avant depart"
+
+[node name="tps depart" type="ProgressBar" parent="CanvasLayer/jauges/VBoxContainer"]
+margin_top = 126.0
+margin_right = 237.0
+margin_bottom = 140.0
+custom_styles/bg = SubResource( 2 )
+
+[node name="tuto" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
+margin_top = 144.0
+margin_right = 237.0
+margin_bottom = 158.0
 text = "interagir : espace ou e "
 
 [node name="menu" type="Control" parent="CanvasLayer"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
@@ -306,10 +318,9 @@ scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )
 
 [node name="icones bas" type="Node2D" parent="ui humain"]
-editor/display_folded = true
 position = Vector2( -100.211, 175.572 )
 
-[node name="manger" parent="ui humain/icones bas" instance=ExtResource( 7 )]
+[node name="lumiere2" parent="ui humain/icones bas" instance=ExtResource( 7 )]
 scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )
 
@@ -318,7 +329,7 @@ position = Vector2( 70, 0 )
 scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )
 
-[node name="jeu" parent="ui humain/icones bas" instance=ExtResource( 7 )]
+[node name="jeu2" parent="ui humain/icones bas" instance=ExtResource( 7 )]
 position = Vector2( 140, 0 )
 scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )

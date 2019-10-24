@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scripts/arbre.gd" type="Script" id=1]
+[ext_resource path="res://images/tama danse/arbre.gd" type="Script" id=1]
+
 
 [node name="arbre" type="Sprite"]
 self_modulate = Color( 0.501961, 0.898039, 0.447059, 1 )

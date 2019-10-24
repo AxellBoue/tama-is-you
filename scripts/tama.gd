@@ -56,7 +56,7 @@ func _physics_process(delta):
 		if velocity.x == 0 && velocity.y == 0 :
 			anim.play("idle"+sensTama)
 		else :
-			anim.play("marche")
+			anim.play("marche"+sensTama)
 	
 	
 ##### faim ########
