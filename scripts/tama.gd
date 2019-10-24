@@ -56,9 +56,18 @@ func _physics_process(delta):
 		if velocity.x == 0 && velocity.y == 0 :
 			anim.play("idle"+sensTama)
 		else :
-			anim.play("marche")
+			anim.play("marche"+sensTama)
+		if velocity.x > 0:
+			anim.flip_h = true
+		else :
+			anim.flip_h = false
 	
-	
+func entre_zone_milieu():
+	sensTama = "Dos"
+
+func sort_zone_milieu():
+	sensTama = "Face"	
+
 ##### faim ########
 func set_faim(modif):
 	faim = clamp(faim + modif,0,100)

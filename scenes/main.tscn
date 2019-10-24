@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://objets/gameManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=2]
@@ -16,8 +16,9 @@
 [ext_resource path="res://objets/zone danse.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/potager.gd" type="Script" id=15]
 [ext_resource path="res://objets/zonePousse.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/zoneHack.gd" type="Script" id=17]
-[ext_resource path="res://objets/tama.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scripts/zonePourHumain.gd" type="Script" id=17]
+[ext_resource path="res://scripts/zoneHack.gd" type="Script" id=18]
+[ext_resource path="res://objets/tama.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=1]
 resource_name = "secoue"
@@ -159,16 +160,15 @@ p : ballade dans les icones
 espace : manger pomme"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="jauges" type="Control" parent="CanvasLayer"]
-editor/display_folded = true
 margin_left = 30.0
 margin_top = 29.0
 margin_right = 267.0
 margin_bottom = 189.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/jauges"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -209,13 +209,26 @@ margin_right = 237.0
 margin_bottom = 104.0
 custom_styles/bg = SubResource( 2 )
 
-[node name="tuto" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
+[node name="temps avant départ" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
 margin_top = 108.0
 margin_right = 237.0
 margin_bottom = 122.0
+text = "temps avant depart"
+
+[node name="tps depart" type="ProgressBar" parent="CanvasLayer/jauges/VBoxContainer"]
+margin_top = 126.0
+margin_right = 237.0
+margin_bottom = 140.0
+custom_styles/bg = SubResource( 2 )
+
+[node name="tuto" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
+margin_top = 144.0
+margin_right = 237.0
+margin_bottom = 158.0
 text = "interagir : espace ou e "
 
 [node name="menu" type="Control" parent="CanvasLayer"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
@@ -309,7 +322,7 @@ texture = ExtResource( 8 )
 editor/display_folded = true
 position = Vector2( -100.211, 175.572 )
 
-[node name="manger" parent="ui humain/icones bas" instance=ExtResource( 7 )]
+[node name="lumiere2" parent="ui humain/icones bas" instance=ExtResource( 7 )]
 scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )
 
@@ -318,7 +331,7 @@ position = Vector2( 70, 0 )
 scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )
 
-[node name="jeu" parent="ui humain/icones bas" instance=ExtResource( 7 )]
+[node name="jeu2" parent="ui humain/icones bas" instance=ExtResource( 7 )]
 position = Vector2( 140, 0 )
 scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )
@@ -352,7 +365,6 @@ texture = ExtResource( 10 )
 [node name="humain" parent="." instance=ExtResource( 11 )]
 
 [node name="decor" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="pop bouffe" type="Node2D" parent="decor"]
 position = Vector2( 268.827, 506.486 )
@@ -380,7 +392,6 @@ offset = Vector2( -530.113, -241.536 )
 polygon = PoolVector2Array( 409.424, 350.145, 408.092, 242.38, 423.41, 171.867, 458.042, 151.91, 503.174, 145.494, 582.584, 147.254, 616.55, 154.571, 647.852, 179.849, 661.402, 247.463, 663.836, 352.141 )
 
 [node name="sol" type="Node2D" parent="decor"]
-editor/display_folded = true
 position = Vector2( 522.577, 413.517 )
 z_index = -100
 
@@ -399,6 +410,7 @@ color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -12.3083, 5.59711, 7.22949, 35.2189, 65.8428, 35.2189, 45.0445, 6.22736 )
 
 [node name="dancefloor" type="Node2D" parent="decor/sol"]
+editor/display_folded = true
 visible = false
 position = Vector2( -1000, 0 )
 script = ExtResource( 13 )
@@ -445,19 +457,8 @@ polygon = PoolVector2Array( -46.1202, -1.14359, 5.30042, 100.989, 126.662, 100.9
 
 [node name="Timer" type="Timer" parent="decor/sol/dancefloor"]
 
-[node name="zone interaction" type="Area2D" parent="decor/sol"]
-editor/display_folded = true
-visible = false
-
-[node name="Polygon2D" type="Polygon2D" parent="decor/sol/zone interaction"]
-z_index = 10
-color = Color( 0.968627, 0.74902, 0.988235, 1 )
-polygon = PoolVector2Array( -225.562, -1.03824, -271.358, 45.0241, 277.195, 46.0516, 242.004, -0.686188 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/zone interaction"]
-polygon = PoolVector2Array( -226.961, -1.5939, -271.283, 44.9436, 278.303, 47.1596, 240.63, -0.48587 )
-
 [node name="sol" type="Polygon2D" parent="decor/sol"]
+z_index = -10
 color = Color( 0.631373, 0.682353, 0.705882, 1 )
 polygon = PoolVector2Array( -229.122, 0.861359, -263.203, -3.68277, -522.22, 187.171, 504.757, 196.26, 275.278, 5.40555, 241.197, 0.861359 )
 
@@ -474,6 +475,7 @@ position = Vector2( -3.47601, 85.27 )
 polygon = PoolVector2Array( 278.899, -79.7873, -261.999, -88.9527, -516.471, 101.901, 508.234, 110.99, 281.899, -78.7873, 330.9, -159.787, 615.07, 75.6555, 617.018, 194.485, -607.354, 195.057, -593.722, 54.1879, -306.343, -163.951, 328.9, -159.787 )
 
 [node name="potager" type="Area2D" parent="decor/sol"]
+editor/display_folded = true
 position = Vector2( -299.801, 83.278 )
 script = ExtResource( 15 )
 
@@ -518,6 +520,19 @@ position = Vector2( 44.8044, -68.1807 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse5"]
 polygon = PoolVector2Array( -24.5866, 2.05273, 26.7273, 2.86722, 35.6868, -4.46332, -13.9981, -4.46332 )
 
+[node name="zone pour humain" type="Area2D" parent="decor/sol"]
+editor/display_folded = true
+position = Vector2( 1.07019, 4.39371 )
+script = ExtResource( 17 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/zone pour humain"]
+polygon = PoolVector2Array( -190.433, -0.633301, 207.337, -5.66833, 275.31, 120.208, -265.96, 117.691 )
+
+[node name="Polygon2D" type="Polygon2D" parent="decor/sol/zone pour humain"]
+position = Vector2( -1.07019, -4.39371 )
+color = Color( 0.968627, 0.74902, 0.988235, 1 )
+polygon = PoolVector2Array( -188.086, 2.76123, -260.458, 122.95, 271.993, 125.535, 211.252, 4.05359 )
+
 [node name="sol bas" type="Node2D" parent="decor"]
 editor/display_folded = true
 position = Vector2( 522.577, 614.47 )
@@ -557,7 +572,7 @@ polygon = PoolVector2Array( 252.973, -85.8007, -220.324, -88.3182, -449.42, 100.
 [node name="zone hack" type="Area2D" parent="decor"]
 editor/display_folded = true
 position = Vector2( 885.058, 418.332 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="feedback" type="Sprite" parent="decor/zone hack"]
 position = Vector2( 5.84399, -42.8564 )
@@ -571,10 +586,11 @@ polygon = PoolVector2Array( -16.6701, 55.2392, -12.7741, -22.6816, 35.9263, -26.
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/zone hack"]
 polygon = PoolVector2Array( -26.4102, 45.4991, -71.2147, 41.603, -73.1627, 66.9273, -36.1503, 100.044, 26.1862, 94.1995 )
 
-[node name="fonc noir" type="Polygon2D" parent="decor"]
+[node name="fond noir" type="Polygon2D" parent="decor"]
 z_index = -1000
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -618.465, -596.287, -599.491, 1232.8, 1749.48, 1217.62, 1738.09, -611.466 )
 
-[node name="tama" parent="." instance=ExtResource( 18 )]
+[node name="tama" parent="." instance=ExtResource( 19 )]
 position = Vector2( 412.688, 531.127 )
+z_index = 20

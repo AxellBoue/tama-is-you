@@ -31,7 +31,6 @@ func _input(event):
 	
 func commence_danse():
 	humain.normal()
-	humain.isDanse = true
 	position = Vector2(0,0)
 	visible = true
 	timer.start()
@@ -39,7 +38,6 @@ func commence_danse():
 	
 func stop_danse():
 	timer.stop()
-	humain.isDanse = false
 	humain.fin_danse()
 	visible = false
 	iconesPas[danseAttendue].visible=false

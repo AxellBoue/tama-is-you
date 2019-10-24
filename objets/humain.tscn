@@ -190,7 +190,6 @@ tracks/0/keys = {
 }
 
 [node name="humain" type="Node2D"]
-editor/display_folded = true
 position = Vector2( 525.466, 225.218 )
 z_index = -300
 script = ExtResource( 1 )

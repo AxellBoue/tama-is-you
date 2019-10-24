@@ -18,6 +18,8 @@ func interaction():
 			get_node("/root/scene/decor/sol/potager").plante(self)
 		else : # mange
 			tama.tiensQqchose = false
+			tama.objetProche = null
 			tama.part_d_objet(self)
 			tama.set_faim(get_node("/root/scene/gameManager").valeurPomme)
+			get_node("/root/scene/humain").tama_mange()
 			queue_free()
