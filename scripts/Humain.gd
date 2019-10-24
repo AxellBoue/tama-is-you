@@ -159,7 +159,8 @@ func fin_timer_bouffe():
 
 func tama_mange():
 	timerBouffe.stop()
-	content(impactMange)
+	if isLa :
+		content(impactMange)
 
 
 ####  amour  et colère ####
