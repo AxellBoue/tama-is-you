@@ -352,6 +352,7 @@ position = Vector2( 122.584, 120.573 )
 texture = ExtResource( 10 )
 
 [node name="humain" parent="." instance=ExtResource( 11 )]
+impactMangePas = -10
 
 [node name="decor" type="Node2D" parent="."]
 editor/display_folded = true

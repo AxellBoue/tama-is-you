@@ -5,6 +5,9 @@
 [node name="gameManager" type="Node2D"]
 editor/display_folded = true
 script = ExtResource( 1 )
+vitesseFaim = 10.0
+vitesseDanse = 1.5
+impactMauvaiseDanse = -8
 
 [node name="targetCameraHaut" type="Node2D" parent="."]
 position = Vector2( 509.994, 299.814 )
