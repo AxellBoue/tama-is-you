@@ -60,7 +60,12 @@ func _game_over():
 	menu.get_node("AnimationPlayer").play("game over")
 	recommencer.grab_focus()
 
+func victoire():
+	menu.get_node("AnimationPlayer").play("victoire")
+	recommencer.grab_focus()
+
 func _recommencer():
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 	
 func _quitter():

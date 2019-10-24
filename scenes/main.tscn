@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://objets/gameManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=2]
@@ -11,14 +11,17 @@
 [ext_resource path="res://images/iconeJeu1.png" type="Texture" id=9]
 [ext_resource path="res://images/icônedanse.png" type="Texture" id=10]
 [ext_resource path="res://objets/humain.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/trappe.gd" type="Script" id=12]
-[ext_resource path="res://scripts/danse.gd" type="Script" id=13]
-[ext_resource path="res://objets/zone danse.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scripts/potager.gd" type="Script" id=15]
-[ext_resource path="res://objets/zonePousse.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/zonePourHumain.gd" type="Script" id=17]
-[ext_resource path="res://scripts/zoneHack.gd" type="Script" id=18]
-[ext_resource path="res://objets/tama.tscn" type="PackedScene" id=19]
+[ext_resource path="res://images/tamarades/tama1.png" type="Texture" id=12]
+[ext_resource path="res://images/tamarades/tama2.png" type="Texture" id=13]
+[ext_resource path="res://images/tamarades/tama3.png" type="Texture" id=14]
+[ext_resource path="res://scripts/trappe.gd" type="Script" id=15]
+[ext_resource path="res://scripts/danse.gd" type="Script" id=16]
+[ext_resource path="res://objets/zone danse.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/potager.gd" type="Script" id=18]
+[ext_resource path="res://objets/zonePousse.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scripts/zonePourHumain.gd" type="Script" id=20]
+[ext_resource path="res://scripts/zoneHack.gd" type="Script" id=21]
+[ext_resource path="res://objets/tama.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Animation" id=1]
 resource_name = "secoue"
@@ -91,8 +94,186 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/Victoire:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/VBoxContainer/Victoire2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CenterContainer/VBoxContainer/Game Over2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CenterContainer/VBoxContainer/Game Over:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "victoire"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("fonduNoir:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/recommencer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/quitter:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/Victoire:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/VBoxContainer/Victoire2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CenterContainer/VBoxContainer/Game Over:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CenterContainer/VBoxContainer/Game Over2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=4]
+
+[sub_resource type="Animation" id=6]
+resource_name = "met dans poche"
+tracks/0/type = "value"
+tracks/0/path = NodePath("fond:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.878431, 0.996078, 1, 1 ), Color( 0.164706, 0.278431, 0.427451, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "sort de poche"
+tracks/0/type = "value"
+tracks/0/path = NodePath("fond:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.164706, 0.278431, 0.427451, 1 ), Color( 0.878431, 0.996078, 1, 1 ) ]
+}
 
 [node name="scene" type="Node2D"]
 
@@ -151,15 +332,21 @@ margin_top = 78.0
 margin_bottom = 152.0
 text = "Snack"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Ecran/texteMilieu/menuBouffe"]
-margin_top = 156.0
+[node name="menuDanse" type="GridContainer" parent="Ecran/texteMilieu"]
+editor/display_folded = true
+visible = false
+columns = 2
+
+[node name="fleche danse" type="Label" parent="Ecran/texteMilieu/menuDanse"]
 margin_right = 55.0
-margin_bottom = 156.0
-text = "o : donne bouffe
-p : ballade dans les icones
-espace : manger pomme"
+margin_bottom = 74.0
+text = "> "
+
+[node name="danse" parent="Ecran/texteMilieu/menuDanse" instance=ExtResource( 4 )]
+text = "Danse"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="jauges" type="Control" parent="CanvasLayer"]
 margin_left = 30.0
@@ -210,25 +397,26 @@ margin_bottom = 104.0
 custom_styles/bg = SubResource( 2 )
 
 [node name="temps avant départ" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
+visible = false
 margin_top = 108.0
 margin_right = 237.0
 margin_bottom = 122.0
 text = "temps avant depart"
 
 [node name="tps depart" type="ProgressBar" parent="CanvasLayer/jauges/VBoxContainer"]
+visible = false
 margin_top = 126.0
 margin_right = 237.0
 margin_bottom = 140.0
 custom_styles/bg = SubResource( 2 )
 
 [node name="tuto" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
-margin_top = 144.0
+margin_top = 108.0
 margin_right = 237.0
-margin_bottom = 158.0
+margin_bottom = 122.0
 text = "interagir : espace ou e "
 
 [node name="menu" type="Control" parent="CanvasLayer"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
@@ -245,14 +433,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/menu/CenterContainer"]
+editor/display_folded = true
 visible = false
-margin_left = 324.0
-margin_top = 284.0
-margin_right = 700.0
-margin_bottom = 436.0
+margin_left = 512.0
+margin_top = 360.0
+margin_right = 512.0
+margin_bottom = 360.0
 theme = ExtResource( 3 )
 
+[node name="Victoire" type="Label" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
+visible = false
+margin_right = 878.0
+margin_bottom = 228.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Victoire !!! 
+Le tamagochi est hacké 
+vous êtes libre "
+align = 1
+
+[node name="Victoire2" type="Label" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
+visible = false
+margin_top = 232.0
+margin_right = 878.0
+margin_bottom = 306.0
+
 [node name="Game Over" type="Label" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
+visible = false
 margin_right = 544.0
 margin_bottom = 74.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -260,6 +466,7 @@ text = "Game Over"
 align = 1
 
 [node name="Game Over2" type="Label" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
+visible = false
 margin_top = 78.0
 margin_right = 544.0
 margin_bottom = 152.0
@@ -268,25 +475,27 @@ align = 1
 
 [node name="recommencer" type="Button" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
 visible = false
-margin_top = 156.0
-margin_right = 544.0
-margin_bottom = 236.0
+margin_top = 310.0
+margin_right = 878.0
+margin_bottom = 390.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = " Recommencer "
 
 [node name="quitter" type="Button" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
 visible = false
-margin_top = 240.0
-margin_right = 544.0
-margin_bottom = 320.0
+margin_top = 394.0
+margin_right = 878.0
+margin_bottom = 474.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Quitter"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/menu"]
 "anims/game over" = SubResource( 3 )
+anims/victoire = SubResource( 5 )
 anims/vide = SubResource( 4 )
 
 [node name="ui humain" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 523.91, 200.422 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -341,6 +550,7 @@ scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )
 
 [node name="icones danse" type="Node2D" parent="ui humain"]
+editor/display_folded = true
 
 [node name="icon" type="Sprite" parent="ui humain/icones danse"]
 visible = false
@@ -364,6 +574,47 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 10 )
 
 [node name="humain" parent="." instance=ExtResource( 11 )]
+
+[node name="couleur peau" type="Sprite" parent="humain"]
+self_modulate = Color( 0.870588, 0.780392, 0.729412, 1 )
+position = Vector2( 9.08838, -13.6324 )
+scale = Vector2( 550, 500 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="fond derriere humain" type="Node2D" parent="."]
+position = Vector2( 534.554, 211.586 )
+z_index = -310
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fond derriere humain"]
+"anims/met dans poche" = SubResource( 6 )
+"anims/sort de poche" = SubResource( 7 )
+
+[node name="fond" type="Sprite" parent="fond derriere humain"]
+self_modulate = Color( 0.878431, 0.996078, 1, 1 )
+scale = Vector2( 550, 500 )
+texture = ExtResource( 5 )
+
+[node name="narration" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 534.554, 211.586 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="narration"]
+
+[node name="tamarade1" type="Sprite" parent="narration"]
+visible = false
+position = Vector2( -109.06, 29.537 )
+texture = ExtResource( 12 )
+
+[node name="tamarade2" type="Sprite" parent="narration"]
+visible = false
+position = Vector2( -109.06, 29.537 )
+texture = ExtResource( 13 )
+
+[node name="tamarade3" type="Sprite" parent="narration"]
+visible = false
+position = Vector2( 88.6108, 27.265 )
+texture = ExtResource( 14 )
 
 [node name="decor" type="Node2D" parent="."]
 editor/display_folded = true
@@ -394,6 +645,7 @@ offset = Vector2( -530.113, -241.536 )
 polygon = PoolVector2Array( 409.424, 350.145, 408.092, 242.38, 423.41, 171.867, 458.042, 151.91, 503.174, 145.494, 582.584, 147.254, 616.55, 154.571, 647.852, 179.849, 661.402, 247.463, 663.836, 352.141 )
 
 [node name="sol" type="Node2D" parent="decor"]
+editor/display_folded = true
 position = Vector2( 522.577, 413.517 )
 z_index = -100
 
@@ -401,7 +653,7 @@ z_index = -100
 editor/display_folded = true
 position = Vector2( 329.797, 125.877 )
 z_index = 50
-script = ExtResource( 12 )
+script = ExtResource( 15 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/trappe"]
 polygon = PoolVector2Array( -34.7313, -11.7252, -16.8994, 15.8332, 42.2936, 16.5018, 21.422, -11.7362 )
@@ -415,11 +667,11 @@ polygon = PoolVector2Array( -12.3083, 5.59711, 7.22949, 35.2189, 65.8428, 35.218
 editor/display_folded = true
 visible = false
 position = Vector2( -1000, 0 )
-script = ExtResource( 13 )
+script = ExtResource( 16 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="decor/sol/dancefloor"]
 
-[node name="zone danse2" parent="decor/sol/dancefloor" instance=ExtResource( 14 )]
+[node name="zone danse2" parent="decor/sol/dancefloor" instance=ExtResource( 17 )]
 editor/display_folded = true
 position = Vector2( -110.864, -0.814514 )
 z_index = 10
@@ -431,7 +683,7 @@ polygon = PoolVector2Array( -36.5677, 0.80423, 59.9611, 0.369232, 33.8082, 98.54
 color = Color( 0.996078, 1, 0.639216, 1 )
 polygon = PoolVector2Array( -37.0539, -0.0102539, -95.6985, 100.174, 33.8082, 100.174, 58.5645, -0.329071 )
 
-[node name="zone danse" parent="decor/sol/dancefloor" instance=ExtResource( 14 )]
+[node name="zone danse" parent="decor/sol/dancefloor" instance=ExtResource( 17 )]
 editor/display_folded = true
 position = Vector2( 10.4972, 0 )
 z_index = 10
@@ -444,7 +696,7 @@ polygon = PoolVector2Array( -36.5677, 0.80423, 50.5847, -0.0102539, 88.3803, 102
 color = Color( 0.996078, 1, 0.639216, 1 )
 polygon = PoolVector2Array( -37.0539, -0.0102539, -50.9005, 103.432, 87.5658, 102.618, 50.0984, -0.824768 )
 
-[node name="zone danse3" parent="decor/sol/dancefloor" instance=ExtResource( 14 )]
+[node name="zone danse3" parent="decor/sol/dancefloor" instance=ExtResource( 17 )]
 editor/display_folded = true
 position = Vector2( 133.488, 0 )
 z_index = 10
@@ -479,7 +731,7 @@ polygon = PoolVector2Array( 278.899, -79.7873, -261.999, -88.9527, -516.471, 101
 [node name="potager" type="Area2D" parent="decor/sol"]
 editor/display_folded = true
 position = Vector2( -299.801, 83.278 )
-script = ExtResource( 15 )
+script = ExtResource( 18 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager"]
 polygon = PoolVector2Array( 31.9577, -87.5712, -217.876, 95.6404, -47.619, 101.192, 107.833, -83.87 )
@@ -488,14 +740,14 @@ polygon = PoolVector2Array( 31.9577, -87.5712, -217.876, 95.6404, -47.619, 101.1
 color = Color( 0.54902, 0.447059, 0.313726, 1 )
 polygon = PoolVector2Array( -217.876, 93.7896, 31.9577, -87.5712, 104.132, -83.87, -49.4697, 103.043 )
 
-[node name="zonePousse" parent="decor/sol/potager" instance=ExtResource( 16 )]
+[node name="zonePousse" parent="decor/sol/potager" instance=ExtResource( 19 )]
 editor/display_folded = true
 position = Vector2( -99.349, 60.3885 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse"]
 polygon = PoolVector2Array( -71.0276, 18.4655, 51.9628, 20.9091, 75.5835, -5.96967, -40.0764, -7.59869 )
 
-[node name="zonePousse2" parent="decor/sol/potager" instance=ExtResource( 16 )]
+[node name="zonePousse2" parent="decor/sol/potager" instance=ExtResource( 19 )]
 editor/display_folded = true
 position = Vector2( -60.3885, 23.3762 )
 
@@ -503,20 +755,20 @@ position = Vector2( -60.3885, 23.3762 )
 position = Vector2( 16.426, -6.15649 )
 polygon = PoolVector2Array( -71.0276, 18.4655, 20.1971, 18.4655, 48.7048, -5.15515, -34.3749, -4.34064 )
 
-[node name="zonePousse3" parent="decor/sol/potager" instance=ExtResource( 16 )]
+[node name="zonePousse3" parent="decor/sol/potager" instance=ExtResource( 19 )]
 editor/display_folded = true
 position = Vector2( -13.6361, -15.5842 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse3"]
 polygon = PoolVector2Array( -46.7822, 9.72961, 34.6684, 10.5441, 54.2166, -4.93149, -22.347, -6.56049 )
 
-[node name="zonePousse4" parent="decor/sol/potager" instance=ExtResource( 16 )]
+[node name="zonePousse4" parent="decor/sol/potager" instance=ExtResource( 19 )]
 position = Vector2( 21.4282, -44.8045 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse4"]
 polygon = PoolVector2Array( -34.6052, 3.92621, 36.2569, 4.74069, 40.3294, -5.03339, -22.3876, -7.4769 )
 
-[node name="zonePousse5" parent="decor/sol/potager" instance=ExtResource( 16 )]
+[node name="zonePousse5" parent="decor/sol/potager" instance=ExtResource( 19 )]
 position = Vector2( 44.8044, -68.1807 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse5"]
@@ -525,7 +777,7 @@ polygon = PoolVector2Array( -24.5866, 2.05273, 26.7273, 2.86722, 35.6868, -4.463
 [node name="zone pour humain" type="Area2D" parent="decor/sol"]
 editor/display_folded = true
 position = Vector2( 1.07019, 4.39371 )
-script = ExtResource( 17 )
+script = ExtResource( 20 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/zone pour humain"]
 polygon = PoolVector2Array( -190.433, -0.633301, 207.337, -5.66833, 275.31, 120.208, -265.96, 117.691 )
@@ -544,7 +796,7 @@ z_index = -100
 editor/display_folded = true
 position = Vector2( 342.748, 125.662 )
 z_index = 50
-script = ExtResource( 12 )
+script = ExtResource( 15 )
 haut = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol bas/trappe2"]
@@ -574,7 +826,7 @@ polygon = PoolVector2Array( 252.973, -85.8007, -220.324, -88.3182, -449.42, 100.
 [node name="zone hack" type="Area2D" parent="decor"]
 editor/display_folded = true
 position = Vector2( 885.058, 418.332 )
-script = ExtResource( 18 )
+script = ExtResource( 21 )
 
 [node name="feedback" type="Sprite" parent="decor/zone hack"]
 position = Vector2( 5.84399, -42.8564 )
@@ -593,6 +845,6 @@ z_index = -1000
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -618.465, -596.287, -599.491, 1232.8, 1749.48, 1217.62, 1738.09, -611.466 )
 
-[node name="tama" parent="." instance=ExtResource( 19 )]
+[node name="tama" parent="." instance=ExtResource( 22 )]
 position = Vector2( 412.688, 531.127 )
 z_index = 20

@@ -16,7 +16,14 @@ func _physics_process(delta):
 		set_hack(vitesseHack * delta / 10)
 
 func interaction():
-	isHacking = !isHacking
+	set_is_hacking(!isHacking)
+	if isHacking :
+		tama.start_hack()
+	else :
+		tama.stop_hack()
+
+func set_is_hacking(b):
+	isHacking = b
 	feedbackHack.visible = isHacking
 	
 func _on_body_exited(body):
@@ -29,4 +36,4 @@ func set_hack(f):
 	hack += f
 	jauge.value = hack
 	if hack >= 100:
-		print ("victoire")
+		get_node("/root/scene/gameManager").victoire()

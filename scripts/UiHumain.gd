@@ -1,5 +1,8 @@
 extends Node2D
 
+#humain
+onready var humain = get_node("../humain")
+
 var focus
 # navigation dans les icones du haut
 var icones 
@@ -11,14 +14,12 @@ export var tpsChangeIcone = 0.7
 # navigation sous menu
 var choisiTexte = false
 
-# danse
-onready var dancefloor = get_node("/root/scene/decor/sol/dancefloor")
-
 #partie de l'ui qui est en canvas et pas en image (pour le texte) 
 onready var ecran = get_node("/root/scene/Ecran/texteMilieu")
 
-#humain
-onready var humain = get_node("../humain")
+# danse
+onready var menuDanse = ecran.get_node("menuDanse")
+onready var dancefloor = get_node("/root/scene/decor/sol/dancefloor")
 
 # manger
 onready var menuBouffe = ecran.get_node("menuBouffe")
@@ -87,12 +88,13 @@ func active_action():
 		"manger" :
 			menuBouffe.visible = true
 			menuBouffe.get_node("repas")._on_focus_entered()
-			choisiTexte = true
 			focus = menuBouffe.get_node("repas")
+			choisiTexte = true
 			timerUi.start()
 		"repas":
 			choisiTexte = false
 			pop_bouffe(pomme)
+			menuBouffe.visible = false
 			focus = icones[currentI]
 		"snack":
 			choisiTexte = false
@@ -101,7 +103,16 @@ func active_action():
 		"lumiere" :
 			humain.fin_hesite()
 		"jeu" :
+			menuDanse.visible = true
+			menuDanse.get_node("danse")._on_focus_entered()
+			focus = menuDanse.get_node("danse")
+			choisiTexte = true
+			timerUi.start()
+		"danse":
+			choisiTexte = false
 			dancefloor.commence_danse()
+			menuDanse.visible = false
+			focus = icones[currentI]
 		"soin" :
 			humain.fin_hesite()
 		_ :
@@ -112,5 +123,4 @@ func pop_bouffe(typeDeBouffe):
 	var newBouffe = typeDeBouffe.instance()
 	positionPopBouffe.get_node("../").add_child(newBouffe)
 	newBouffe.global_position = positionPopBouffe.global_position
-	menuBouffe.visible = false
 	humain.donne_bouffe()

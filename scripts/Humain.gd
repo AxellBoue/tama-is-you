@@ -30,7 +30,6 @@ export var impactTamaLouche = -30
 var compteTamaLouche = 0
 
 onready var timerBouffe = get_node("TimerBouffe")
-var aBoufe = false
 export var impactMange = 8
 export var impactMangePas = -8
 export var delaisPourManger = 3
