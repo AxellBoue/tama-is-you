@@ -12,6 +12,9 @@ var isBloque = false
 var faim = 100
 onready var jaugeFaim = get_node("/root/scene/CanvasLayer/jauges/VBoxContainer/faim") #juste pour tester à cacher après
 onready var timerAnimFaim #dans game manager plutôt ?
+var palierFaim = 4
+var paliersFaim = [0,10,30,50,80,100]
+onready var timerFaim = get_node("timerFaim")
 
 # interaction
 var objetProche
@@ -22,6 +25,7 @@ var isDancing = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.connect("animation_finished",self,"_anim_finished")
+	timerFaim.connect("timeout",self,"gargouille")
 
 func _input(event):
 	if event.is_action_pressed("action"):
@@ -72,8 +76,15 @@ func sort_zone_milieu():
 func set_faim(modif):
 	faim = clamp(faim + modif,0,100)
 	jaugeFaim.value = faim
+	if faim > paliersFaim[palierFaim+1]:
+		change_palier(1)
+	elif faim < paliersFaim[palierFaim]:
+		change_palier(-1)
 
 func change_palier(i):
+	pass
+	
+func gargouille():
 	pass
 
 #######  interactions ######

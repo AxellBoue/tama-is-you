@@ -9,7 +9,7 @@
 [ext_resource path="res://objets/icone ui.tscn" type="PackedScene" id=7]
 [ext_resource path="res://images/iconeLumiere1.png" type="Texture" id=8]
 [ext_resource path="res://images/iconeJeu1.png" type="Texture" id=9]
-[ext_resource path="res://icon.png" type="Texture" id=10]
+[ext_resource path="res://images/icônedanse.png" type="Texture" id=10]
 [ext_resource path="res://objets/humain.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/trappe.gd" type="Script" id=12]
 [ext_resource path="res://scripts/danse.gd" type="Script" id=13]
@@ -287,7 +287,6 @@ text = "Quitter"
 anims/vide = SubResource( 4 )
 
 [node name="ui humain" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 523.91, 200.422 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -342,29 +341,32 @@ scale = Vector2( 1, 0.999999 )
 texture = ExtResource( 8 )
 
 [node name="icones danse" type="Node2D" parent="ui humain"]
-editor/display_folded = true
 
 [node name="icon" type="Sprite" parent="ui humain/icones danse"]
 visible = false
 modulate = Color( 1, 1, 1, 0.509804 )
-position = Vector2( -103.238, 123.293 )
+position = Vector2( -105.454, 123.293 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 10 )
 
 [node name="icon2" type="Sprite" parent="ui humain/icones danse"]
 visible = false
 modulate = Color( 1, 1, 1, 0.509804 )
 position = Vector2( 5.59198, 121.933 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 10 )
 
 [node name="icon3" type="Sprite" parent="ui humain/icones danse"]
 visible = false
 modulate = Color( 1, 1, 1, 0.509804 )
-position = Vector2( 122.584, 120.573 )
+position = Vector2( 125.908, 120.573 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 10 )
 
 [node name="humain" parent="." instance=ExtResource( 11 )]
 
 [node name="decor" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="pop bouffe" type="Node2D" parent="decor"]
 position = Vector2( 268.827, 506.486 )

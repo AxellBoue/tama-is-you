@@ -2,11 +2,10 @@
 
 [ext_resource path="res://images/tama danse/arbre.gd" type="Script" id=1]
 
-
 [node name="arbre" type="Sprite"]
 self_modulate = Color( 0.501961, 0.898039, 0.447059, 1 )
-position = Vector2( -0.428589, 0.20282 )
-offset = Vector2( 4.32458, -101.634 )
+position = Vector2( 0.387695, -0.354904 )
+offset = Vector2( -10.0292, -211.181 )
 script = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]

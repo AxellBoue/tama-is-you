@@ -67,7 +67,6 @@ func decide():
 		part()
 	else :
 		var r = rand.randi_range(0,5)
-		print (r)
 		match r :
 			0:
 				# bouffe
@@ -155,7 +154,7 @@ func donne_bouffe():
 
 func fin_timer_bouffe():
 	pas_content(impactMangePas)
-	print ("pas mangé")
+	#print ("pas mangé")
 
 func tama_mange():
 	timerBouffe.stop()
@@ -169,7 +168,7 @@ func set_amour(i):
 	jaugeAmour.value = amour
 	if amour < paliersAmour[palierAmour]:
 		set_palier_amour(-1)
-	elif amour > paliersAmour[palierAmour]:
+	elif amour > paliersAmour[palierAmour+1]:
 		set_palier_amour(1)
 
 func set_palier_amour(i):
