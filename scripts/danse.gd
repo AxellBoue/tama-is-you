@@ -4,7 +4,7 @@ var danseAttendue = 0
 var rand = RandomNumberGenerator.new()
 var attendsDanse = false
 var numPas = 0
-var maxPas = 10
+var maxPas = 7
 onready var timer = get_node("Timer")
 var iconesPas
 onready var humain = get_node("/root/scene/humain")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/gameManager.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=2]
@@ -25,10 +25,81 @@
 [ext_resource path="res://scripts/zoneHack.gd" type="Script" id=23]
 [ext_resource path="res://objets/tama.tscn" type="PackedScene" id=24]
 
+[sub_resource type="Animation" id=9]
+resource_name = "secoue"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.2, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 521.158, 347.422 ), Vector2( 578.08, 301 ), Vector2( 513, 351.217 ), Vector2( 521.158, 347.422 ) ]
+}
+
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 1, 1 )
 modulate_color = Color( 0.521569, 0.521569, 0.490196, 1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "game over"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("fonduNoir:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/recommencer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/quitter:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "vide"
 
 [sub_resource type="Animation" id=2]
 resource_name = "123 soleil"
@@ -234,6 +305,9 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 script = ExtResource( 2 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="camera"]
+anims/secoue = SubResource( 9 )
+
 [node name="Ecran" type="Control" parent="."]
 editor/display_folded = true
 anchor_right = 1.0
@@ -336,26 +410,69 @@ custom_styles/bg = SubResource( 1 )
 [node name="tuto" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
 margin_top = 108.0
 margin_right = 237.0
-margin_bottom = 190.0
-text = "pour tester :
-i : donne a manger
-o : ballade dans les icones
-p : danse
-espace : interagir"
+margin_bottom = 122.0
+text = "interagir : espace ou e "
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="menu" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
 
-[node name="fonduNoir" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="fonduNoir" type="TextureRect" parent="CanvasLayer/menu"]
 modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 5 )
 stretch_mode = 1
 
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/menu/CenterContainer"]
+visible = false
+margin_left = 324.0
+margin_top = 284.0
+margin_right = 700.0
+margin_bottom = 436.0
+theme = ExtResource( 3 )
+
+[node name="Game Over" type="Label" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
+margin_right = 544.0
+margin_bottom = 74.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Game Over"
+align = 1
+
+[node name="Game Over2" type="Label" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 544.0
+margin_bottom = 152.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+
+[node name="recommencer" type="Button" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
+visible = false
+margin_top = 156.0
+margin_right = 544.0
+margin_bottom = 236.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = " Recommencer "
+
+[node name="quitter" type="Button" parent="CanvasLayer/menu/CenterContainer/VBoxContainer"]
+visible = false
+margin_top = 240.0
+margin_right = 544.0
+margin_bottom = 320.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Quitter"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/menu"]
+"anims/game over" = SubResource( 8 )
+anims/vide = SubResource( 10 )
+
 [node name="ui humain" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 523.91, 200.422 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -431,6 +548,7 @@ position = Vector2( 122.584, 120.573 )
 texture = ExtResource( 10 )
 
 [node name="humain" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 525.466, 225.218 )
 z_index = -300
 script = ExtResource( 11 )
@@ -451,10 +569,14 @@ anims/part = SubResource( 6 )
 [node name="Timer decisions" type="Timer" parent="humain"]
 one_shot = true
 
+[node name="TimerBouffe" type="Timer" parent="humain"]
+one_shot = true
+
 [node name="pomme" parent="." instance=ExtResource( 17 )]
 position = Vector2( 233.257, 555.319 )
 
 [node name="decor" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="pop bouffe" type="Node2D" parent="decor"]
 position = Vector2( 268.827, 506.486 )
@@ -672,6 +794,11 @@ polygon = PoolVector2Array( -16.6701, 55.2392, -12.7741, -22.6816, 35.9263, -26.
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/zone hack"]
 polygon = PoolVector2Array( -26.4102, 45.4991, -71.2147, 41.603, -73.1627, 66.9273, -36.1503, 100.044, 26.1862, 94.1995 )
+
+[node name="fonc noir" type="Polygon2D" parent="decor"]
+z_index = -1000
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -618.465, -596.287, -599.491, 1232.8, 1749.48, 1217.62, 1738.09, -611.466 )
 
 [node name="tama" parent="." instance=ExtResource( 24 )]
 position = Vector2( 412.688, 531.127 )

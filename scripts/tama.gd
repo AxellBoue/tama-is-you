@@ -25,10 +25,10 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("action"):
-		if objetProche:
+		if objetProche != null:
 			objetProche.interaction()
 	
-	if event.is_action_pressed("test1"):
+	if event.is_action_pressed("test3"):
 		set_faim(-20)
 
 #### mouvement #####
@@ -64,6 +64,8 @@ func set_faim(modif):
 	faim = clamp(faim + modif,0,100)
 	jaugeFaim.value = faim
 
+func change_palier(i):
+	pass
 
 #######  interactions ######
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PlanterV3.wav-c9b25a182bfe6c59ef1d262b7c693a85.sample"
+
+[deps]
+
+source_file="res://sons/PlanterV3.wav"
+dest_files=[ "res://.import/PlanterV3.wav-c9b25a182bfe6c59ef1d262b7c693a85.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

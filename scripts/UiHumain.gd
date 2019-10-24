@@ -17,6 +17,9 @@ onready var dancefloor = get_node("/root/scene/decor/sol/dancefloor")
 #partie de l'ui qui est en canvas et pas en image (pour le texte) 
 onready var ecran = get_node("/root/scene/Ecran/texteMilieu")
 
+#humain
+onready var humain = get_node("../humain")
+
 # manger
 onready var menuBouffe = ecran.get_node("menuBouffe")
 onready var positionPopBouffe = get_node("/root/scene/decor/pop bouffe")
@@ -33,12 +36,13 @@ func _ready():
 	timerUi.wait_time = tpsChangeIcone
 
 func _input(event):
-	if event.is_action_pressed("test1"):
-		nouvelObjectif(0)
-	if event.is_action_pressed("test2"):
-		nouvelObjectif(5)
-	if event.is_action_pressed("test3"):
-		nouvelObjectif(2)	
+	pass
+	#if event.is_action_pressed("test1"):
+	#	nouvelObjectif(0)
+	#if event.is_action_pressed("test2"):
+	#	nouvelObjectif(5)
+	#if event.is_action_pressed("test3"):
+	#	nouvelObjectif(2)	
 
 
 func nouvelObjectif (var new_i):
@@ -91,11 +95,13 @@ func active_action():
 			choisiTexte = false
 			pop_bouffe(snack)
 		"lumiere" :
-			pass
+			humain.fin_hesite()
 		"jeu" :
 			dancefloor.commence_danse()
 		"soin" :
-			pass
+			humain.fin_hesite()
+		_ :
+			humain.fin_hesite()
 			
 # actions
 func pop_bouffe(typeDeBouffe):
@@ -103,4 +109,4 @@ func pop_bouffe(typeDeBouffe):
 	positionPopBouffe.get_node("../").add_child(newBouffe)
 	newBouffe.global_position = positionPopBouffe.global_position
 	menuBouffe.visible = false
-	
+	humain.donne_bouffe()
