@@ -1,0 +1,77 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://scripts/tama.gd" type="Script" id=1]
+[ext_resource path="res://images/tama danse/tamadance0007.png" type="Texture" id=2]
+[ext_resource path="res://images/idle face/tamaidleface0000.png" type="Texture" id=3]
+[ext_resource path="res://images/idle face/tamaidleface0001.png" type="Texture" id=4]
+[ext_resource path="res://images/idle face/tamaidleface0002.png" type="Texture" id=5]
+[ext_resource path="res://images/idle face/tamaidleface0003.png" type="Texture" id=6]
+[ext_resource path="res://images/idle face/tamaidleface0004.png" type="Texture" id=7]
+[ext_resource path="res://images/idle face/tamaidleface0005.png" type="Texture" id=8]
+[ext_resource path="res://images/idle face/tamaidleface0006.png" type="Texture" id=9]
+[ext_resource path="res://images/idle dos/tamaidledos0000.png" type="Texture" id=10]
+[ext_resource path="res://images/idle dos/tamaidledos0001.png" type="Texture" id=11]
+[ext_resource path="res://images/idle dos/tamaidledos0002.png" type="Texture" id=12]
+[ext_resource path="res://images/idle dos/tamaidledos0003.png" type="Texture" id=13]
+[ext_resource path="res://images/idle dos/tamaidledos0004.png" type="Texture" id=14]
+[ext_resource path="res://images/idle dos/tamaidledos0005.png" type="Texture" id=15]
+[ext_resource path="res://images/idle dos/tamaidledos0006.png" type="Texture" id=16]
+[ext_resource path="res://images/tama danse/tamadance0000.png" type="Texture" id=17]
+[ext_resource path="res://images/tama danse/tamadance0001.png" type="Texture" id=18]
+[ext_resource path="res://images/tama danse/tamadance0002.png" type="Texture" id=19]
+[ext_resource path="res://images/tama danse/tamadance0003.png" type="Texture" id=20]
+[ext_resource path="res://images/tama danse/tamadance0004.png" type="Texture" id=21]
+[ext_resource path="res://images/tama danse/tamadance0005.png" type="Texture" id=22]
+[ext_resource path="res://images/tama danse/tamadance0006.png" type="Texture" id=23]
+[ext_resource path="res://images/tama danse/tamadance0008.png" type="Texture" id=24]
+[ext_resource path="res://images/tama danse/tamadance0009.png" type="Texture" id=25]
+[ext_resource path="res://images/tama danse/tamadance0010.png" type="Texture" id=26]
+[ext_resource path="res://images/tama danse/tamadance0011.png" type="Texture" id=27]
+[ext_resource path="res://images/tama danse/tamadance0012.png" type="Texture" id=28]
+[ext_resource path="res://images/tama danse/tamadance0013.png" type="Texture" id=29]
+[ext_resource path="res://images/tama danse/tamadance0014.png" type="Texture" id=30]
+[ext_resource path="res://images/tama danse/tamadance0015.png" type="Texture" id=31]
+[ext_resource path="res://images/tama danse/tamadance0016.png" type="Texture" id=32]
+[ext_resource path="res://images/tama danse/tamadance0017.png" type="Texture" id=33]
+[ext_resource path="res://images/tama danse/tamadance0018.png" type="Texture" id=34]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "marche",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "idleFace",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "idleDos",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 2 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": false,
+"name": "danse",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 40.0
+
+[node name="tama" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.782348, 5.10931 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "marche"
+offset = Vector2( -0.947876, -127.034 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4.03183 )
+rotation = 1.5708
+shape = SubResource( 2 )

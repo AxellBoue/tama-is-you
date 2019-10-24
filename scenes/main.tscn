@@ -1,30 +1,32 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scripts/gameManager.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=2]
-[ext_resource path="res://images/pixel-blanc.jpg" type="Texture" id=3]
-[ext_resource path="res://theme.tres" type="Theme" id=4]
-[ext_resource path="res://objets/choix ui.tscn" type="PackedScene" id=5]
+[ext_resource path="res://theme.tres" type="Theme" id=3]
+[ext_resource path="res://objets/choix ui.tscn" type="PackedScene" id=4]
+[ext_resource path="res://images/pixel-blanc.jpg" type="Texture" id=5]
 [ext_resource path="res://scripts/UiHumain.gd" type="Script" id=6]
 [ext_resource path="res://objets/icone ui.tscn" type="PackedScene" id=7]
 [ext_resource path="res://images/iconeLumiere1.png" type="Texture" id=8]
 [ext_resource path="res://images/iconeJeu1.png" type="Texture" id=9]
 [ext_resource path="res://icon.png" type="Texture" id=10]
 [ext_resource path="res://scripts/Humain.gd" type="Script" id=11]
-[ext_resource path="res://images/123soleil.png" type="Texture" id=12]
-[ext_resource path="res://images/humain/oeilnormalnofilter.png" type="Texture" id=13]
+[ext_resource path="res://images/humain/oeilnormalfilter.png" type="Texture" id=12]
+[ext_resource path="res://images/123soleil.png" type="Texture" id=13]
 [ext_resource path="res://images/humain/oeilcontentfiltre.png" type="Texture" id=14]
-[ext_resource path="res://images/humain/oeilnormalfilter.png" type="Texture" id=15]
+[ext_resource path="res://images/humain/oeilnormalnofilter.png" type="Texture" id=15]
 [ext_resource path="res://images/humain/oeilpascontentfiltre.png" type="Texture" id=16]
 [ext_resource path="res://objets/pomme.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/trappe.gd" type="Script" id=18]
 [ext_resource path="res://scripts/danse.gd" type="Script" id=19]
 [ext_resource path="res://objets/zone danse.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scripts/potager.gd" type="Script" id=21]
-[ext_resource path="res://scripts/tama.gd" type="Script" id=22]
+[ext_resource path="res://objets/zonePousse.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scripts/zoneHack.gd" type="Script" id=23]
+[ext_resource path="res://objets/tama.tscn" type="PackedScene" id=24]
 
 [sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 1, 1 )
 modulate_color = Color( 0.521569, 0.521569, 0.490196, 1 )
 
@@ -41,7 +43,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 12 ) ]
+"values": [ ExtResource( 13 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:position")
@@ -113,7 +115,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 13 ) ]
+"values": [ ExtResource( 12 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -144,7 +146,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 15 ) ]
+"values": [ ExtResource( 12 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -192,7 +194,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 13 ) ]
+"values": [ ExtResource( 15 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -210,9 +212,6 @@ tracks/0/keys = {
 "values": [ ExtResource( 16 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=8]
-height = 40.0
-
 [node name="scene" type="Node2D"]
 
 [node name="gameManager" type="Node2D" parent="."]
@@ -228,11 +227,61 @@ position = Vector2( 506.903, 522.357 )
 [node name="timerFaim" type="Timer" parent="gameManager"]
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2( 510, 300 )
+position = Vector2( 521.158, 347.422 )
 current = true
+zoom = Vector2( 1.8, 1.8 )
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 script = ExtResource( 2 )
+
+[node name="Ecran" type="Control" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 325.0
+margin_top = 49.0
+margin_right = 325.0
+margin_bottom = 49.0
+theme = ExtResource( 3 )
+
+[node name="texteMilieu" type="MarginContainer" parent="Ecran"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 80.0
+margin_right = -30.0
+margin_bottom = -75.0
+
+[node name="menuBouffe" type="GridContainer" parent="Ecran/texteMilieu"]
+editor/display_folded = true
+visible = false
+columns = 2
+
+[node name="fleche repas" type="Label" parent="Ecran/texteMilieu/menuBouffe"]
+margin_right = 55.0
+margin_bottom = 74.0
+text = "> "
+
+[node name="repas" parent="Ecran/texteMilieu/menuBouffe" instance=ExtResource( 4 )]
+
+[node name="fleche snack" type="Label" parent="Ecran/texteMilieu/menuBouffe"]
+margin_top = 78.0
+margin_right = 55.0
+margin_bottom = 152.0
+text = "> "
+
+[node name="snack" parent="Ecran/texteMilieu/menuBouffe" instance=ExtResource( 4 )]
+margin_top = 78.0
+margin_bottom = 152.0
+text = "Snack"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Ecran/texteMilieu/menuBouffe"]
+margin_top = 156.0
+margin_right = 55.0
+margin_bottom = 156.0
+text = "o : donne bouffe
+p : ballade dans les icones
+espace : manger pomme"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -294,59 +343,19 @@ o : ballade dans les icones
 p : danse
 espace : interagir"
 
-[node name="Ecran" type="Control" parent="CanvasLayer"]
-editor/display_folded = true
+[node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 325.0
-margin_top = 49.0
-margin_right = -288.0
-margin_bottom = -189.0
-theme = ExtResource( 4 )
+theme = ExtResource( 3 )
 
-[node name="texteMilieu" type="MarginContainer" parent="CanvasLayer/Ecran"]
+[node name="fonduNoir" type="TextureRect" parent="CanvasLayer/Control"]
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 80.0
-margin_right = -30.0
-margin_bottom = -75.0
-
-[node name="menuBouffe" type="GridContainer" parent="CanvasLayer/Ecran/texteMilieu"]
-editor/display_folded = true
-visible = false
-margin_right = 341.0
-margin_bottom = 207.0
-columns = 2
-
-[node name="fleche repas" type="Label" parent="CanvasLayer/Ecran/texteMilieu/menuBouffe"]
-margin_right = 55.0
-margin_bottom = 74.0
-text = "> "
-
-[node name="repas" parent="CanvasLayer/Ecran/texteMilieu/menuBouffe" instance=ExtResource( 5 )]
-
-[node name="fleche snack" type="Label" parent="CanvasLayer/Ecran/texteMilieu/menuBouffe"]
-margin_top = 78.0
-margin_right = 55.0
-margin_bottom = 152.0
-text = "> "
-
-[node name="snack" parent="CanvasLayer/Ecran/texteMilieu/menuBouffe" instance=ExtResource( 5 )]
-margin_top = 78.0
-margin_bottom = 152.0
-text = "Snack"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ecran/texteMilieu/menuBouffe"]
-margin_top = 156.0
-margin_right = 55.0
-margin_bottom = 156.0
-text = "o : donne bouffe
-p : ballade dans les icones
-espace : manger pomme"
+texture = ExtResource( 5 )
+stretch_mode = 1
 
 [node name="ui humain" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 523.91, 200.422 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -422,7 +431,6 @@ position = Vector2( 122.584, 120.573 )
 texture = ExtResource( 10 )
 
 [node name="humain" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 525.466, 225.218 )
 z_index = -300
 script = ExtResource( 11 )
@@ -439,6 +447,9 @@ anims/part = SubResource( 6 )
 "anims/pas content" = SubResource( 7 )
 
 [node name="Timer va et viens" type="Timer" parent="humain"]
+
+[node name="Timer decisions" type="Timer" parent="humain"]
+one_shot = true
 
 [node name="pomme" parent="." instance=ExtResource( 17 )]
 position = Vector2( 233.257, 555.319 )
@@ -471,6 +482,7 @@ offset = Vector2( -530.113, -241.536 )
 polygon = PoolVector2Array( 409.424, 350.145, 408.092, 242.38, 423.41, 171.867, 458.042, 151.91, 503.174, 145.494, 582.584, 147.254, 616.55, 154.571, 647.852, 179.849, 661.402, 247.463, 663.836, 352.141 )
 
 [node name="sol" type="Node2D" parent="decor"]
+editor/display_folded = true
 position = Vector2( 522.577, 413.517 )
 z_index = -100
 
@@ -489,10 +501,11 @@ color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -12.3083, 5.59711, 7.22949, 35.2189, 65.8428, 35.2189, 45.0445, 6.22736 )
 
 [node name="dancefloor" type="Node2D" parent="decor/sol"]
-editor/display_folded = true
 visible = false
 position = Vector2( -1000, 0 )
 script = ExtResource( 19 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="decor/sol/dancefloor"]
 
 [node name="zone danse2" parent="decor/sol/dancefloor" instance=ExtResource( 20 )]
 editor/display_folded = true
@@ -573,20 +586,39 @@ polygon = PoolVector2Array( 31.9577, -87.5712, -217.876, 95.6404, -47.619, 101.1
 color = Color( 0.54902, 0.447059, 0.313726, 1 )
 polygon = PoolVector2Array( -217.876, 93.7896, 31.9577, -87.5712, 104.132, -83.87, -49.4697, 103.043 )
 
-[node name="zonePousse" type="Node2D" parent="decor/sol/potager"]
-position = Vector2( -97.895, 57.8949 )
+[node name="zonePousse" parent="decor/sol/potager" instance=ExtResource( 22 )]
+editor/display_folded = true
+position = Vector2( -99.349, 60.3885 )
 
-[node name="zonePousse2" type="Node2D" parent="decor/sol/potager"]
-position = Vector2( -56.8422, 23.1579 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse"]
+polygon = PoolVector2Array( -71.0276, 18.4655, 51.9628, 20.9091, 75.5835, -5.96967, -40.0764, -7.59869 )
 
-[node name="zonePousse3" type="Node2D" parent="decor/sol/potager"]
-position = Vector2( -13.6842, -14.7369 )
+[node name="zonePousse2" parent="decor/sol/potager" instance=ExtResource( 22 )]
+editor/display_folded = true
+position = Vector2( -60.3885, 23.3762 )
 
-[node name="zonePousse4" type="Node2D" parent="decor/sol/potager"]
-position = Vector2( 22.1053, -44.2107 )
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse2"]
+position = Vector2( 16.426, -6.15649 )
+polygon = PoolVector2Array( -71.0276, 18.4655, 20.1971, 18.4655, 48.7048, -5.15515, -34.3749, -4.34064 )
 
-[node name="zonePousse5" type="Node2D" parent="decor/sol/potager"]
-position = Vector2( 45.2633, -68.4213 )
+[node name="zonePousse3" parent="decor/sol/potager" instance=ExtResource( 22 )]
+editor/display_folded = true
+position = Vector2( -13.6361, -15.5842 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse3"]
+polygon = PoolVector2Array( -46.7822, 9.72961, 34.6684, 10.5441, 54.2166, -4.93149, -22.347, -6.56049 )
+
+[node name="zonePousse4" parent="decor/sol/potager" instance=ExtResource( 22 )]
+position = Vector2( 21.4282, -44.8045 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse4"]
+polygon = PoolVector2Array( -34.6052, 3.92621, 36.2569, 4.74069, 40.3294, -5.03339, -22.3876, -7.4769 )
+
+[node name="zonePousse5" parent="decor/sol/potager" instance=ExtResource( 22 )]
+position = Vector2( 44.8044, -68.1807 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol/potager/zonePousse5"]
+polygon = PoolVector2Array( -24.5866, 2.05273, 26.7273, 2.86722, 35.6868, -4.46332, -13.9981, -4.46332 )
 
 [node name="sol bas" type="Node2D" parent="decor"]
 editor/display_folded = true
@@ -624,15 +656,22 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/sol bas/bordsSol2"]
 polygon = PoolVector2Array( 252.973, -85.8007, -220.324, -88.3182, -449.42, 100.497, 461.928, 108.05, 260.525, -80.7656, 330.9, -159.787, 615.07, 75.6555, 617.018, 194.485, -607.354, 195.057, -593.722, 54.1879, -306.343, -163.951, 328.9, -159.787 )
 
-[node name="tama" type="KinematicBody2D" parent="."]
+[node name="zone hack" type="Area2D" parent="decor"]
 editor/display_folded = true
-position = Vector2( 422.359, 462.187 )
-script = ExtResource( 22 )
+position = Vector2( 885.058, 418.332 )
+script = ExtResource( 23 )
 
-[node name="sprite" type="Sprite" parent="tama"]
-texture = ExtResource( 10 )
+[node name="feedback" type="Sprite" parent="decor/zone hack"]
+position = Vector2( 5.84399, -42.8564 )
+scale = Vector2( 14.28, 14.28 )
+texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tama"]
-position = Vector2( 0, 22.561 )
-rotation = 1.5708
-shape = SubResource( 8 )
+[node name="Polygon2D" type="Polygon2D" parent="decor/zone hack"]
+color = Color( 0.360784, 0.403922, 0.407843, 1 )
+polygon = PoolVector2Array( -16.6701, 55.2392, -12.7741, -22.6816, 35.9263, -26.5776, 16.4461, 88.3555 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decor/zone hack"]
+polygon = PoolVector2Array( -26.4102, 45.4991, -71.2147, 41.603, -73.1627, 66.9273, -36.1503, 100.044, 26.1862, 94.1995 )
+
+[node name="tama" parent="." instance=ExtResource( 24 )]
+position = Vector2( 412.688, 531.127 )

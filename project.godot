@@ -16,10 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="tamagochi test"
+run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
 
 [display]
 
+window/size/height=720
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"

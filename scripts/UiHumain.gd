@@ -15,7 +15,7 @@ var choisiTexte = false
 onready var dancefloor = get_node("/root/scene/decor/sol/dancefloor")
 
 #partie de l'ui qui est en canvas et pas en image (pour le texte) 
-onready var ecran = get_node("/root/scene/CanvasLayer/Ecran/texteMilieu")
+onready var ecran = get_node("/root/scene/Ecran/texteMilieu")
 
 # manger
 onready var menuBouffe = ecran.get_node("menuBouffe")
