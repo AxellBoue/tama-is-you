@@ -5,7 +5,7 @@
 [node name="gameManager" type="Node2D"]
 editor/display_folded = true
 script = ExtResource( 1 )
-vitesseFaim = 10.0
+vitesseFaim = 7.0
 vitesseDanse = 1.5
 impactMauvaiseDanse = -8
 
