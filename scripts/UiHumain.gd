@@ -37,8 +37,8 @@ func _ready():
 
 func _input(event):
 	pass
-	#if event.is_action_pressed("test1"):
-	#	nouvelObjectif(0)
+	if event.is_action_pressed("test3"):
+		nouvelObjectif(0)
 	#if event.is_action_pressed("test2"):
 	#	nouvelObjectif(5)
 	#if event.is_action_pressed("test3"):
@@ -46,7 +46,8 @@ func _input(event):
 
 
 func nouvelObjectif (var new_i):
-	print ("target = "+icones[new_i].name)
+	if new_i == 0:
+		humain.timerDecision.stop()
 	i_target = new_i
 	if currentI == null :
 		change_focus_icones(0)

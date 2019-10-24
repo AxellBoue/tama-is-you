@@ -17,7 +17,7 @@ func interaction():
 		if tama.isInPotager: # plante
 			get_node("/root/scene/decor/sol/potager").plante(self)
 		else : # mange
-			tama.part_d_objet(self)
-			queue_free()
 			tama.tiensQqchose = false
+			tama.part_d_objet(self)
 			tama.set_faim(get_node("/root/scene/gameManager").valeurPomme)
+			queue_free()

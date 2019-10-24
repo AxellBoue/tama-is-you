@@ -26,6 +26,6 @@ func pop_pomme():
 	hasPomme = true
 	var p = pomme.instance()
 	add_child(p)
-	p.position = Vector2(45 ,-140)
+	p.position = Vector2(45 ,-50)
 	
 		

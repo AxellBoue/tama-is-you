@@ -74,7 +74,7 @@ func proche_d_objet(obj):
 		objetProche = obj
 
 func part_d_objet(obj):
-	if !tiensQqchose && obj == objetProche:
+	if !tiensQqchose && obj == objetProche :
 		objetProche = null
 		
 		

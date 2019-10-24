@@ -19,7 +19,7 @@
 [ext_resource path="res://scripts/zoneHack.gd" type="Script" id=17]
 [ext_resource path="res://objets/tama.tscn" type="PackedScene" id=18]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=1]
 resource_name = "secoue"
 length = 2.0
 tracks/0/type = "value"
@@ -35,12 +35,12 @@ tracks/0/keys = {
 "values": [ Vector2( 521.158, 347.422 ), Vector2( 578.08, 301 ), Vector2( 513, 351.217 ), Vector2( 521.158, 347.422 ) ]
 }
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 1, 1 )
 modulate_color = Color( 0.521569, 0.521569, 0.490196, 1 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "game over"
 length = 5.0
 tracks/0/type = "value"
@@ -92,7 +92,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=4]
 resource_name = "vide"
 
 [node name="scene" type="Node2D"]
@@ -109,7 +109,7 @@ drag_margin_v_enabled = false
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="camera"]
-anims/secoue = SubResource( 9 )
+anims/secoue = SubResource( 1 )
 
 [node name="Ecran" type="Control" parent="."]
 editor/display_folded = true
@@ -183,7 +183,7 @@ text = "Faim :"
 margin_top = 18.0
 margin_right = 237.0
 margin_bottom = 32.0
-custom_styles/bg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 value = 100.0
 
 [node name="love t" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
@@ -196,7 +196,7 @@ text = "Love :"
 margin_top = 54.0
 margin_right = 237.0
 margin_bottom = 68.0
-custom_styles/bg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 value = 50.0
 
 [node name="hack t" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
@@ -209,7 +209,7 @@ text = "Hack"
 margin_top = 90.0
 margin_right = 237.0
 margin_bottom = 104.0
-custom_styles/bg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 
 [node name="tuto" type="Label" parent="CanvasLayer/jauges/VBoxContainer"]
 margin_top = 108.0
@@ -272,8 +272,8 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Quitter"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/menu"]
-"anims/game over" = SubResource( 8 )
-anims/vide = SubResource( 10 )
+"anims/game over" = SubResource( 3 )
+anims/vide = SubResource( 4 )
 
 [node name="ui humain" type="Node2D" parent="."]
 editor/display_folded = true

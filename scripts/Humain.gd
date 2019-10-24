@@ -45,14 +45,14 @@ func _ready():
 func _input(event):
 	pass
 	if event.is_action_pressed("test1"):
-		pas_content(-5)
+		pas_content(impactMangePas)
 	if event.is_action_pressed("test2"):
-		content(5)
+		content(impactMange)
 
 ### etat ####
 
 func decide():
-	var r = rand.randi_range(0,3)
+	var r = rand.randi_range(0,5)
 	print (r)
 	match r :
 		0:
@@ -70,6 +70,13 @@ func decide():
 			ui.nouvelObjectif(1)
 			timerDecision.wait_time = rand.randf_range(1,1.5)
 			#timerDecision.start()
+		4:
+			# bouffe
+			timerDecision.wait_time = rand.randf_range(3.5,4.5)
+			ui.nouvelObjectif(0)
+		5 :
+			# danse
+			ui.nouvelObjectif(2)
 
 func fin_danse():
 	if vaPartir :
