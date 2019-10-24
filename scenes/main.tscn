@@ -286,7 +286,6 @@ text = "Quitter"
 anims/vide = SubResource( 4 )
 
 [node name="ui humain" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 523.91, 200.422 )
 script = ExtResource( 6 )
 __meta__ = {

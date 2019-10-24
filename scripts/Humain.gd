@@ -10,7 +10,6 @@ var vaPartir = false
 onready var timerDecision = get_node("Timer decisions")
 onready var ui = get_node("../ui humain")
 var rand = RandomNumberGenerator.new()
-var isDanse = false
 
 var amour = 50.0
 onready var jaugeAmour = get_node("/root/scene/CanvasLayer/jauges/VBoxContainer/love")
@@ -113,12 +112,6 @@ func tama_is_louche():
 	
 ##### depart et arrivée
 func end_timer_va_et_viens(): # juste pour viens
-	#if isLa :
-	#	if !isDanse : #et pas entrain de donner a manger
-	#		part()
-	#	else :
-	#		vaPartir = true
-	#else :
 	_123Soleil()
 	timer.stop()
 
@@ -130,7 +123,6 @@ func arrive():
 	isLa = true
 	timerDecision.wait_time = 5
 	timerDecision.start()
-	compteurDepart = 0
 	tempsDepart = tempsResteParPalier[palierAmour]
 	jaugeDepart.max_value = tempsDepart
 	timerDepart.start()
@@ -144,6 +136,9 @@ func _chrono_depart():
 
 func part():
 	timerDecision.stop()
+	timerDepart.stop()
+	compteurDepart = 0
+	jaugeDepart.value = compteurDepart
 	anim.play("part")
 	isLa = false
 	timer.wait_time = tempsRetourParPalier[palierAmour]
