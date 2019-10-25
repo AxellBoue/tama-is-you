@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/VentreGargouilleV1Nul.wav-1e87812be2100e3bdefc474ccce42648.sample"
+
+[deps]
+
+source_file="res://sons/VentreGargouilleV1Nul.wav"
+dest_files=[ "res://.import/VentreGargouilleV1Nul.wav-1e87812be2100e3bdefc474ccce42648.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

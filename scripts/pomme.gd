@@ -1,17 +1,21 @@
 extends "res://scripts/objInteractif.gd"
 
 var tenue = false
+var pommierDorigine = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 func interaction():
-	if !tenue :
+	if !tenue : #la prends
 		tenue = true
 		tama.tiensQqchose = true
 		get_parent().remove_child(self)
 		tama.add_child(self)
 		position = Vector2(0,-50)
+		if pommierDorigine != null:
+			pommierDorigine.pomme_prise()
+			pommierDorigine = null
 		#tama.proche_d_objet(self)
 	else :
 		if tama.isInPotager: # plante

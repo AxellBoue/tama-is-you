@@ -48,7 +48,6 @@ func _on_timer_faim():
 func frappe():
 	vieTama -= 1
 	camera.get_node("AnimationPlayer").play("secoue")
-	print (vieTama)
 	if vieTama <= 0 :
 		_game_over()
 	#else :

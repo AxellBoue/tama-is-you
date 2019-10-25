@@ -30,9 +30,7 @@ func sort_zone(zone):
 		zoneProche = null
 
 func plante(pomme):
-	print("plante ???")
 	if zoneProche :
-		print("plante")
 		tama.part_d_objet(pomme)
 		pomme.queue_free()
 		tama.tiensQqchose = false
@@ -40,3 +38,6 @@ func plante(pomme):
 		zoneProche.feedback.visible = false
 		var a = arbre.instance()
 		zoneProche.add_child(a)
+		zoneProche = null
+		#a.global_position = zoneProche.global_position
+		#zoneProche.queue_free

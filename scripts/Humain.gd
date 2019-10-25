@@ -2,53 +2,68 @@ extends Node2D
 
 onready var gm = get_node("/root/scene/gameManager")
 
+onready var soundPlayer = get_node("AudioStreamPlayer2D")
 onready var anim = get_node("AnimationPlayer")
-onready var timer = get_node("Timer va et viens")
+onready var fond = get_node("../fond derriere humain/AnimationPlayer")
+
 var isLa = true
 var vaPartir = false
-
-onready var timerDecision = get_node("Timer decisions")
-onready var ui = get_node("../ui humain")
-var rand = RandomNumberGenerator.new()
-
-var amour = 50.0
-onready var jaugeAmour = get_node("/root/scene/CanvasLayer/jauges/VBoxContainer/love")
-var palierAmour = 1
-export var paliersAmour = [0,30,60,100]
+# depart
+onready var timerDepart  = get_node("Timer depart")
+var compteurDepart = 0
+var tempsDepart = 20
+onready var jaugeDepart = get_node("/root/scene/CanvasLayer/jauges/VBoxContainer/tps depart")
+# reviens
+onready var timerReviens = get_node("Timer reviens")
 export var tempsRetourParPalier = [60,30,10]
 export var tempsResteParPalier = [15,20,50]
 export (float) var tempsAjouteSiContent = 1.0
 export (float) var tempsRetireSiPasContent = 1.0
+# ajouter : tempsRetourSiFaim -> si jauge faim < ? reviens plus vite
+onready var sonArrive = preload("res://sons/HumainArrive.wav")
+#decision
+onready var timerDecision = get_node("Timer decisions")
+onready var ui = get_node("../ui humain")
+var rand = RandomNumberGenerator.new()
+# amour / colère
+var amour = 50.0
+onready var jaugeAmour = get_node("/root/scene/CanvasLayer/jauges/VBoxContainer/love")
+var palierAmour = 1
+export var paliersAmour = [0,30,60,100]
 var compteurFrappe = 2
-# ajouter : tempsRetourSiFaim
-var timerDepart
-var compteurDepart = 0
-var tempsDepart = 20
-onready var jaugeDepart = get_node("/root/scene/CanvasLayer/jauges/VBoxContainer/tps depart")
-
-export var impactTamaLouche = -30
-var compteTamaLouche = 0
-
+onready var sonContent = preload("res://sons/HumainContent.wav")
+onready var sonPasContent = preload("res://sons/HumainPasContent.wav")
+onready var sonColere = preload("res://sons/HumainColere.wav")
+# nourrir
 onready var timerBouffe = get_node("TimerBouffe")
 export var impactMange = 8
 export var impactMangePas = -8
 export var delaisPourManger = 3
+# tama fait truc louche
+export var impactTamaLouche = -30
+var compteTamaLouche = 0
+#reaction decalée pendant danse
+onready var timerReactionDecalee = get_node("Timer reaction decalee")
+var reactionLater
+var valeurReactionDecalee = 0
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.connect("animation_finished",self,"fin_anim")
 	#viens et part
-	timer.connect("timeout",self,"end_timer_va_et_viens") #timer va et viens / ou juste viens
-	timer.wait_time = tempsRetourParPalier[palierAmour]
-	timer.start()
-	timerDepart = Timer.new()
-	add_child(timerDepart)
-	timerDepart.wait_time = 1
+	timerReviens.connect("timeout",self,"end_timer_va_et_viens") 
+	timerReviens.wait_time = tempsRetourParPalier[palierAmour]
+	timerReviens.start()
 	timerDepart.connect("timeout",self,"_chrono_depart")
 	# actions
 	timerDecision.connect("timeout",self,"decide")
 	timerBouffe.connect("timeout",self,"fin_timer_bouffe")
 	timerBouffe.wait_time = delaisPourManger
+	#reaction décalée
+	timerReactionDecalee.connect("timeout",self,"do_reaction_later")
+	#initialise le random
 	rand.randomize()
 	arrive()
 
@@ -106,15 +121,19 @@ func tama_is_louche():
 			pass
 		3:
 			pass
+			print("reset")
 	
 	
 ##### depart et arrivée
 func end_timer_va_et_viens(): # juste pour viens
 	_123Soleil()
-	timer.stop()
+	timerReviens.stop()
 
 func _123Soleil():
 	anim.play("123 soleil")
+	fond.play("sort de poche")
+	soundPlayer.stream = sonArrive
+	soundPlayer.play()
 
 func arrive():
 	anim.play("arrive")
@@ -124,7 +143,7 @@ func arrive():
 	tempsDepart = tempsResteParPalier[palierAmour]
 	jaugeDepart.max_value = tempsDepart
 	timerDepart.start()
-	timer.stop()
+	timerReviens.stop()
 
 func _chrono_depart():
 	compteurDepart += 1
@@ -140,8 +159,8 @@ func part():
 	jaugeDepart.value = compteurDepart
 	anim.play("part")
 	isLa = false
-	timer.wait_time = tempsRetourParPalier[palierAmour]
-	timer.start()
+	timerReviens.wait_time = tempsRetourParPalier[palierAmour]
+	timerReviens.start()
 	vaPartir = false
 	
 	
@@ -176,11 +195,15 @@ func set_palier_amour(i):
 	
 func frappe():
 	gm.frappe()
+	soundPlayer.stream = sonColere
+	soundPlayer.play()
 
 ### réactions ####	
 func content(i):
 	if anim.current_animation != "arrive" && anim.current_animation !="part":
 		anim.play("content")
+		soundPlayer.stream = sonContent
+		soundPlayer.play()
 	set_amour(i)
 	tempsDepart += tempsAjouteSiContent
 	jaugeDepart.max_value = tempsDepart
@@ -188,6 +211,8 @@ func content(i):
 func pas_content(i):
 	if anim.current_animation != "arrive" && anim.current_animation !="part":
 		anim.play("pas content")
+		soundPlayer.stream = sonPasContent
+		soundPlayer.play()
 	set_amour(i)
 	tempsDepart -= tempsRetireSiPasContent
 	jaugeDepart.max_value = tempsDepart
@@ -200,12 +225,27 @@ func pas_content(i):
 		 
 func normal ():
 	anim.play("normal")
+	
+func lance_reaction_later (reaction,i):
+		reactionLater = reaction
+		valeurReactionDecalee = i
+		timerReactionDecalee.start()
+		
+func do_reaction_later():
+	match reactionLater:
+		"content":
+			content(valeurReactionDecalee)
+		"pas content":
+			pas_content(valeurReactionDecalee)
+	
 
 func fin_anim(a):
 	if a == "content" || a == "pas content" :
 		normal()
 	elif a == "123 soleil":
 		arrive()
+	elif a == "part":
+		fond.play("met dans poche")
 		
 		
 

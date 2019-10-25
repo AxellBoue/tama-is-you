@@ -6,7 +6,9 @@ var velocity
 var sensTama = "Face"
 onready var anim = get_node("sprite")
 
-var isBloque = false
+var isBloque = false # pour empecher de bouger pdt certaines interactions
+
+onready var soundPlayer = get_node("AudioStreamPlayer")
 
 # faim
 var faim = 100
@@ -16,6 +18,7 @@ var paliersFaim = [0,10,30,50,80,100]
 export var frequenceGargouille = [2,5,10,15,0]
 onready var timerFaim = get_node("timerFaim")
 var isGargouilling = false
+onready var gargouillis = preload("res://sons/VentreGargouilleV1Nul.wav")
 
 # interaction
 var objetProche
@@ -81,7 +84,9 @@ func sort_zone_milieu():
 func set_faim(modif):
 	faim = clamp(faim + modif,0,100)
 	jaugeFaim.value = faim
-	if faim > paliersFaim[palierFaim+1]:
+	if faim <= 0:
+		get_node("/root/scene/gameManager").game_over()
+	elif faim > paliersFaim[palierFaim+1]:
 		change_palier(1)
 	elif faim < paliersFaim[palierFaim]:
 		change_palier(-1)
@@ -106,6 +111,8 @@ func gargouille():
 		isBloque = true
 		isGargouilling = true
 		anim.play("gargouille")
+		soundPlayer.stream = gargouillis
+		soundPlayer.play()
 		if palierFaim < 3 :
 			timerFaim.start()
 

@@ -67,7 +67,7 @@ func tama_danse(num):
 			mauvaise_reponse()
 	
 func mauvaise_reponse():
-	humain.pas_content(impactMauvaiseDanse)
+	humain.lance_reaction_later("pas content",impactMauvaiseDanse)
 	
 func bonne_reponse():
-	humain.content(impactBonneDanse)
+	humain.lance_reaction_later("content",impactBonneDanse)

@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Humain.gd" type="Script" id=1]
-[ext_resource path="res://images/humain/oeilcontentfiltre.png" type="Texture" id=2]
+[ext_resource path="res://images/humain/oeilnormalfilter.png" type="Texture" id=2]
 [ext_resource path="res://images/123soleil.png" type="Texture" id=3]
-[ext_resource path="res://images/humain/oeilnormalfilter.png" type="Texture" id=4]
-[ext_resource path="res://images/humain/oeilpascontentfiltre.png" type="Texture" id=5]
+[ext_resource path="res://images/humain/oeilpascontentfiltre.png" type="Texture" id=4]
+[ext_resource path="res://images/humain/oeilcontentfiltre.png" type="Texture" id=5]
 [ext_resource path="res://sons/HumainContent.wav" type="AudioStream" id=6]
+[ext_resource path="res://images/pixel-blanc.jpg" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "123 soleil"
@@ -49,7 +50,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "arrive"
-length = 2.0
+length = 3.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Sprite:position:x")
 tracks/0/interp = 1
@@ -58,7 +59,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( 7.40247, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.3, 1.8, 2 )
+"times": PoolRealArray( 1, 2.3, 2.8, 3 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("Sprite:position:y")
@@ -68,7 +69,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( -438.597, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0, -10, -0.25, 0, 0.18, 0.354935, 0, -0.03, -1.60751, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.3, 1.8, 2 )
+"times": PoolRealArray( 1, 2.3, 2.8, 3 )
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:visible")
@@ -77,7 +78,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -89,13 +90,25 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 2 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("fond:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.870588, 0.780392, 0.729412, 0 ), Color( 0.870588, 0.780392, 0.729412, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "colere"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -107,7 +120,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:self_modulate")
@@ -142,9 +155,22 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "content"
+[sub_resource type="Animation" id=4]
 length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -158,24 +184,8 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "normal"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 4 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "part"
-length = 2.0
+[sub_resource type="Animation" id=6]
+length = 3.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Sprite:position:x")
 tracks/0/interp = 1
@@ -218,10 +228,22 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 2 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("fond:self_modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.8, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.870588, 0.780392, 0.729412, 1 ), Color( 0.870588, 0.780392, 0.729412, 1 ), Color( 0.870588, 0.780392, 0.729412, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -233,7 +255,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 
 [node name="humain" type="Node2D"]
@@ -243,18 +265,22 @@ script = ExtResource( 1 )
 impactMangePas = -10
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 22.2075, -460 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/123 soleil" = SubResource( 1 )
 anims/arrive = SubResource( 2 )
-anims/colere = SubResource( 7 )
-anims/content = SubResource( 3 )
-anims/normal = SubResource( 4 )
-anims/part = SubResource( 5 )
-"anims/pas content" = SubResource( 6 )
+anims/colere = SubResource( 3 )
+anims/content = SubResource( 4 )
+anims/normal = SubResource( 5 )
+anims/part = SubResource( 6 )
+"anims/pas content" = SubResource( 7 )
 
-[node name="Timer va et viens" type="Timer" parent="."]
+[node name="Timer depart" type="Timer" parent="."]
+
+[node name="Timer reviens" type="Timer" parent="."]
 
 [node name="Timer decisions" type="Timer" parent="."]
 one_shot = true
@@ -262,5 +288,15 @@ one_shot = true
 [node name="TimerBouffe" type="Timer" parent="."]
 one_shot = true
 
+[node name="Timer reaction decalee" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
+
+[node name="fond" type="Sprite" parent="."]
+self_modulate = Color( 0.870588, 0.780392, 0.729412, 0 )
+scale = Vector2( 550, 500 )
+z_index = -1
+texture = ExtResource( 7 )
