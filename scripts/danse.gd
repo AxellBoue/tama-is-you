@@ -6,6 +6,7 @@ var attendsDanse = false
 var numPas = 0
 var maxPas = 7
 onready var timer = get_node("Timer")
+onready var timerPause = get_node("Timer pause entre pas")
 var iconesPas
 onready var humain = get_node("/root/scene/humain")
 var impactBonneDanse
@@ -15,11 +16,13 @@ onready var sons = [preload("res://sons/Simon1.wav"),preload("res://sons/Simon2.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.connect("timeout",self,"nouveau_pas")
+	timer.connect("timeout",self,"fin_pas")
+	timer.wait_time = 3
+	timerPause.connect("timeout",self,"nouveau_pas")
+	timerPause.wait_time = 1 #change apres, juste pour premier
 	rand.randomize()
 	var icones = get_node("/root/scene/ui humain/icones danse")
 	iconesPas = [icones.get_child(0),icones.get_child(1),icones.get_child(2)]
-	timer.wait_time = 1
 	var gm = get_node("/root/scene/gameManager")
 	impactBonneDanse = gm.impactBonneDanse
 	impactMauvaiseDanse = gm.impactMauvaiseDanse
@@ -33,8 +36,8 @@ func commence_danse():
 	humain.normal()
 	position = Vector2(0,0)
 	visible = true
-	timer.start()
-	timer.wait_time = 3
+	timerPause.start()
+	timerPause.wait_time = 0.5
 	
 func stop_danse():
 	timer.stop()
@@ -45,16 +48,21 @@ func stop_danse():
 	numPas = 0
 
 func nouveau_pas():
-	if attendsDanse :
-		mauvaise_reponse()
 	numPas += 1
 	if numPas > maxPas :
 		stop_danse()
 	else :
-		iconesPas[danseAttendue].visible= false
 		danseAttendue = rand.randi_range(0,2)
 		iconesPas[danseAttendue].visible = true
 		attendsDanse = true
+		timer.start()
+	
+func fin_pas():
+	if attendsDanse :
+		mauvaise_reponse()
+	iconesPas[danseAttendue].visible = false
+	timerPause.start()
+	
 	
 func tama_danse(num):
 	audioPlayer.stream = sons[num]

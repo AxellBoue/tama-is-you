@@ -5,6 +5,7 @@ onready var gm = get_node("/root/scene/gameManager")
 onready var soundPlayer = get_node("AudioStreamPlayer2D")
 onready var anim = get_node("AnimationPlayer")
 onready var fond = get_node("../fond derriere humain/AnimationPlayer")
+onready var narration = get_node("../narration")
 
 var isLa = true
 var vaPartir = false
@@ -167,7 +168,7 @@ func part():
 ##### gestion bouffe #####
 func donne_bouffe():
 	timerBouffe.start() # pour su'il s'énerve si mange pas
-	timerDecision.wait_time = rand.randf_range(delaisPourManger + 0.5,delaisPourManger + 1.5) 
+	timerDecision.wait_time = rand.randf_range(delaisPourManger + 0.8,delaisPourManger + 1.8) 
 	timerDecision.start() # pour l'action suivante de l'humain
 
 func fin_timer_bouffe():
@@ -246,6 +247,7 @@ func fin_anim(a):
 		arrive()
 	elif a == "part":
 		fond.play("met dans poche")
+		narration.debut_nuit()
 		
 		
 

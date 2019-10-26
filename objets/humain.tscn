@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Humain.gd" type="Script" id=1]
-[ext_resource path="res://images/humain/oeilnormalfilter.png" type="Texture" id=2]
-[ext_resource path="res://images/123soleil.png" type="Texture" id=3]
+[ext_resource path="res://images/123soleil.png" type="Texture" id=2]
+[ext_resource path="res://images/humain/oeilnormalfilter.png" type="Texture" id=3]
 [ext_resource path="res://images/humain/oeilpascontentfiltre.png" type="Texture" id=4]
 [ext_resource path="res://images/humain/oeilcontentfiltre.png" type="Texture" id=5]
 [ext_resource path="res://sons/HumainContent.wav" type="AudioStream" id=6]
@@ -10,7 +10,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "123 soleil"
-length = 4.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 2 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:position")
@@ -45,7 +45,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -93,7 +93,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("fond:self_modulate")
@@ -181,7 +181,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -228,7 +228,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("fond:self_modulate")
@@ -263,10 +263,10 @@ position = Vector2( 525.466, 225.218 )
 z_index = -300
 script = ExtResource( 1 )
 impactMangePas = -10
+delaisPourManger = 5
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( 22.2075, -460 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -289,7 +289,7 @@ one_shot = true
 one_shot = true
 
 [node name="Timer reaction decalee" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.3
 one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

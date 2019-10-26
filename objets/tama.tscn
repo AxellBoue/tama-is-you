@@ -54,32 +54,32 @@
 [ext_resource path="res://images/marche face/marche0010.png" type="Texture" id=52]
 [ext_resource path="res://images/marche face/marche0011.png" type="Texture" id=53]
 [ext_resource path="res://images/marche face/marche0012.png" type="Texture" id=54]
-[ext_resource path="res://images/tama danse/tamadance0000.png" type="Texture" id=55]
-[ext_resource path="res://images/tama danse/tamadance0001.png" type="Texture" id=56]
-[ext_resource path="res://images/tama danse/tamadance0002.png" type="Texture" id=57]
-[ext_resource path="res://images/tama danse/tamadance0003.png" type="Texture" id=58]
-[ext_resource path="res://images/tama danse/tamadance0004.png" type="Texture" id=59]
-[ext_resource path="res://images/tama danse/tamadance0005.png" type="Texture" id=60]
-[ext_resource path="res://images/tama danse/tamadance0006.png" type="Texture" id=61]
-[ext_resource path="res://images/tama danse/tamadance0007.png" type="Texture" id=62]
-[ext_resource path="res://images/tama danse/tamadance0008.png" type="Texture" id=63]
-[ext_resource path="res://images/tama danse/tamadance0009.png" type="Texture" id=64]
-[ext_resource path="res://images/tama danse/tamadance0010.png" type="Texture" id=65]
-[ext_resource path="res://images/tama danse/tamadance0011.png" type="Texture" id=66]
-[ext_resource path="res://images/tama danse/tamadance0012.png" type="Texture" id=67]
-[ext_resource path="res://images/tama danse/tamadance0013.png" type="Texture" id=68]
-[ext_resource path="res://images/tama danse/tamadance0014.png" type="Texture" id=69]
-[ext_resource path="res://images/tama danse/tamadance0015.png" type="Texture" id=70]
-[ext_resource path="res://images/tama danse/tamadance0016.png" type="Texture" id=71]
-[ext_resource path="res://images/tama danse/tamadance0017.png" type="Texture" id=72]
-[ext_resource path="res://images/tama danse/tamadance0018.png" type="Texture" id=73]
-[ext_resource path="res://images/idle dos/tamaidledos0000.png" type="Texture" id=74]
-[ext_resource path="res://images/idle dos/tamaidledos0001.png" type="Texture" id=75]
-[ext_resource path="res://images/idle dos/tamaidledos0002.png" type="Texture" id=76]
-[ext_resource path="res://images/idle dos/tamaidledos0003.png" type="Texture" id=77]
-[ext_resource path="res://images/idle dos/tamaidledos0004.png" type="Texture" id=78]
-[ext_resource path="res://images/idle dos/tamaidledos0005.png" type="Texture" id=79]
-[ext_resource path="res://images/idle dos/tamaidledos0006.png" type="Texture" id=80]
+[ext_resource path="res://images/idle dos/tamaidledos0000.png" type="Texture" id=55]
+[ext_resource path="res://images/idle dos/tamaidledos0001.png" type="Texture" id=56]
+[ext_resource path="res://images/idle dos/tamaidledos0002.png" type="Texture" id=57]
+[ext_resource path="res://images/idle dos/tamaidledos0003.png" type="Texture" id=58]
+[ext_resource path="res://images/idle dos/tamaidledos0004.png" type="Texture" id=59]
+[ext_resource path="res://images/idle dos/tamaidledos0005.png" type="Texture" id=60]
+[ext_resource path="res://images/idle dos/tamaidledos0006.png" type="Texture" id=61]
+[ext_resource path="res://images/tama danse/tamadance0000.png" type="Texture" id=62]
+[ext_resource path="res://images/tama danse/tamadance0001.png" type="Texture" id=63]
+[ext_resource path="res://images/tama danse/tamadance0002.png" type="Texture" id=64]
+[ext_resource path="res://images/tama danse/tamadance0003.png" type="Texture" id=65]
+[ext_resource path="res://images/tama danse/tamadance0004.png" type="Texture" id=66]
+[ext_resource path="res://images/tama danse/tamadance0005.png" type="Texture" id=67]
+[ext_resource path="res://images/tama danse/tamadance0006.png" type="Texture" id=68]
+[ext_resource path="res://images/tama danse/tamadance0007.png" type="Texture" id=69]
+[ext_resource path="res://images/tama danse/tamadance0008.png" type="Texture" id=70]
+[ext_resource path="res://images/tama danse/tamadance0009.png" type="Texture" id=71]
+[ext_resource path="res://images/tama danse/tamadance0010.png" type="Texture" id=72]
+[ext_resource path="res://images/tama danse/tamadance0011.png" type="Texture" id=73]
+[ext_resource path="res://images/tama danse/tamadance0012.png" type="Texture" id=74]
+[ext_resource path="res://images/tama danse/tamadance0013.png" type="Texture" id=75]
+[ext_resource path="res://images/tama danse/tamadance0014.png" type="Texture" id=76]
+[ext_resource path="res://images/tama danse/tamadance0015.png" type="Texture" id=77]
+[ext_resource path="res://images/tama danse/tamadance0016.png" type="Texture" id=78]
+[ext_resource path="res://images/tama danse/tamadance0017.png" type="Texture" id=79]
+[ext_resource path="res://images/tama danse/tamadance0018.png" type="Texture" id=80]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -108,21 +108,23 @@ animations = [ {
 "name": "marcheFace",
 "speed": 14.0
 }, {
-"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ) ],
-"loop": false,
-"name": "danse",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 80 ) ],
+"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 61 ) ],
 "loop": true,
 "name": "idleDos",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ) ],
+"loop": false,
+"name": "danse",
+"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 height = 40.0
 
 [node name="tama" type="KinematicBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/iconeLumiere1.png-94909786e1fbcdab1b65e4ce1fa0084c.stex"
+path="res://.import/iconeJeu1.png-3ff3980d9e6fb50128225e2208a155f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/iconeLumiere1.png"
-dest_files=[ "res://.import/iconeLumiere1.png-94909786e1fbcdab1b65e4ce1fa0084c.stex" ]
+source_file="res://images/ecran/iconeJeu1.png"
+dest_files=[ "res://.import/iconeJeu1.png-3ff3980d9e6fb50128225e2208a155f1.stex" ]
 
 [params]
 

@@ -14,15 +14,18 @@ onready var soundPlayer = get_node("AudioStreamPlayer")
 var faim = 100
 onready var jaugeFaim = get_node("/root/scene/CanvasLayer/jauges/VBoxContainer/faim") #juste pour tester à cacher après
 var palierFaim = 4
-var paliersFaim = [0,10,30,50,80,100]
+var paliersFaim = [-1,10,30,50,80,101]
 export var frequenceGargouille = [2,5,10,15,0]
 onready var timerFaim = get_node("timerFaim")
 var isGargouilling = false
 onready var gargouillis = preload("res://sons/VentreGargouilleV1Nul.wav")
+onready var sonMange = preload("res://sons/Manger.wav")
 
 # interaction
-var objetProche
+var objetsProche = []
+var objetActif
 var tiensQqchose = false
+# warning-ignore:unused_class_variable
 var isInPotager = false
 var isDancing = false
 var isHacking = false
@@ -36,11 +39,12 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("action"):
-		if objetProche != null:
-			objetProche.interaction()
+		if objetActif != null:
+			objetActif.interaction()
 	
 	if event.is_action_pressed("test3"):
-		set_faim(-20)
+		pass
+		#set_faim(-20)
 
 #### mouvement #####
 func get_input():
@@ -85,7 +89,7 @@ func set_faim(modif):
 	faim = clamp(faim + modif,0,100)
 	jaugeFaim.value = faim
 	if faim <= 0:
-		get_node("/root/scene/gameManager").game_over()
+		get_node("/root/scene/gameManager")._game_over()
 	elif faim > paliersFaim[palierFaim+1]:
 		change_palier(1)
 	elif faim < paliersFaim[palierFaim]:
@@ -100,7 +104,7 @@ func change_palier(i):
 			timerFaim.wait_time = 2
 			gargouille()
 			timerFaim.wait_time = frequenceGargouille[palierFaim]
-		elif i <3 :
+		elif i < 3 :
 			timerFaim.wait_time = frequenceGargouille[palierFaim]
 			timerFaim.start() #recup le temps là ou il en était pour pas faire de trop grande pause?
 
@@ -119,13 +123,26 @@ func gargouille():
 #######  interactions ######
 
 func proche_d_objet(obj):
+	 #possibilité de push back si c'est le sol ? avec 2eme argument
 	if !tiensQqchose:
-		objetProche = obj
+		objetsProche.push_front(obj)
+		objetActif = obj
+	else :
+		#objtenu : met en place 0
+		objetsProche.push_back(obj) # met en 2 sauf si sol : fin
 
 func part_d_objet(obj):
-	if !tiensQqchose && obj == objetProche :
-		objetProche = null
+	if !(tiensQqchose && obj == objetActif) : # ou obj != objTenu # était it !tiensQQchose && obj == objtenu
+		objetsProche.erase(obj)
+		if objetsProche.size() >= 1:
+			objetActif = objetsProche[0] #faire des ordres de priorité ? function sort qui met les pommes au début et le sol à la fin ?
+		elif objetsProche.empty():
+			objetActif = null
 		
+		
+func mange():
+	soundPlayer.stream = sonMange
+	soundPlayer.play()
 		
 func pirouette():
 	isDancing = true

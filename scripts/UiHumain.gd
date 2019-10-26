@@ -39,7 +39,8 @@ func _ready():
 func _input(event):
 	pass
 	if event.is_action_pressed("test3"):
-		nouvelObjectif(0)
+		#nouvelObjectif(0)
+		pop_bouffe(pomme)
 	#if event.is_action_pressed("test2"):
 	#	nouvelObjectif(5)
 	#if event.is_action_pressed("test3"):

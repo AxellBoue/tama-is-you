@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Manger.wav-d7cb342ba23198b3f8e583939c20cc57.sample"
+path="res://.import/Manger.wav-86f34d59d5adf10c0b2cc9bbb6276060.sample"
 
 [deps]
 
-source_file="res://images/Manger.wav"
-dest_files=[ "res://.import/Manger.wav-d7cb342ba23198b3f8e583939c20cc57.sample" ]
+source_file="res://sons/Manger.wav"
+dest_files=[ "res://.import/Manger.wav-86f34d59d5adf10c0b2cc9bbb6276060.sample" ]
 
 [params]
 

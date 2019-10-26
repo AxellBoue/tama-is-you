@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/iconeJeu1.png-6a585f4c5ead132c8e579e6199f995d5.stex"
+path="res://.import/icône danse.png-d8d6385a2dac52b408400570bd211dd5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/iconeJeu1.png"
-dest_files=[ "res://.import/iconeJeu1.png-6a585f4c5ead132c8e579e6199f995d5.stex" ]
+source_file="res://images/ecran/icône danse.png"
+dest_files=[ "res://.import/icône danse.png-d8d6385a2dac52b408400570bd211dd5.stex" ]
 
 [params]
 

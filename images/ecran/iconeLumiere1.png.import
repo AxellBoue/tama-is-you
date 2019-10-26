@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/iconeBouffe1.png-1be0bdeaf49f90bef4e15bb292f73cd2.stex"
+path="res://.import/iconeLumiere1.png-9d00110492bf289a31f0b7142747c428.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/iconeBouffe1.png"
-dest_files=[ "res://.import/iconeBouffe1.png-1be0bdeaf49f90bef4e15bb292f73cd2.stex" ]
+source_file="res://images/ecran/iconeLumiere1.png"
+dest_files=[ "res://.import/iconeLumiere1.png-9d00110492bf289a31f0b7142747c428.stex" ]
 
 [params]
 
